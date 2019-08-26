@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  latin_name: MyString
+  type: 
+  max_height: MyString
+  care_level: MyString
+  light_preference: MyString
+  description: MyText
+  plant_image: MyString
+
+two:
+  name: MyString
+  latin_name: MyString
+  type: 
+  max_height: MyString
+  care_level: MyString
+  light_preference: MyString
+  description: MyText
+  plant_image: MyString

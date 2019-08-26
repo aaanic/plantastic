@@ -1,0 +1,12 @@
+<% if @user_plants %>
+  <% @user_plants.each do |user_plant| %>
+    <%= user_plant.nickname %>
+    <%= link_to "Edit Plant", edit_user_plant_path %>
+    <%= link_to "Delete Plant", method: :delete %>
+  <% end %>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to "BROWSE", root_path %>
