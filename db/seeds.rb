@@ -36,3 +36,4 @@ plants_attributes = [{
 puts "growing plants"
 Plant.create!(plants_attributes)
 puts "your #{Plant.count} plants are fully grown"
+# just kidding
