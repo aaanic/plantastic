@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :plants, only: [:index, :show]
 
-  resources :user_plants
+  resources :environment_plants
 
   resources :reminders
 

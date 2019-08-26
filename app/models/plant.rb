@@ -1,3 +1,3 @@
 class Plant < ApplicationRecord
-  has_many :user_plants
+  has_many :environment_plants
 end
