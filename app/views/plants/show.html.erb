@@ -1,2 +1,14 @@
-<h1>Plants#show</h1>
-<p>Find me in app/views/plants/show.html.erb</p>
+<h1>Plant Show Page</h1>
+
+  <%= @plant.name %>
+  <%= @plant.latin_name %>
+  <%= @plant.category %>
+  <%= @plant.max_height %>
+  <%= @plant.care_level %>
+  <%= @plant.light_preference %>
+  <%= @plant.description %>
+  <%= @plant.plant_image %>
+
+<%# form_tag environment_plant_path do %>
+  <%#= submit_tag "Add This Plant!" %>
+<%# end %>

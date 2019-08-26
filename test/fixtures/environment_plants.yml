@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nickname: MyString
+  plant: one
+  environment: one
+
+two:
+  nickname: MyString
+  plant: two
+  environment: two

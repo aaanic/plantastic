@@ -1,0 +1,12 @@
+<% @plants.each do |plant| %>
+  <%= plant.name %>
+  <%= plant.latin_name %>
+  <%= plant.category %>
+  <%= plant.max_height %>
+  <%= plant.care_level %>
+  <%= plant.light_preference %>
+  <%= plant.description %>
+  <%= plant.plant_image %>
+  <br>
+  <%= link_to "View Plant", plant_path(plant) %>
+<% end %>
