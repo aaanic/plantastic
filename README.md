@@ -1,3 +1,20 @@
+Using Master and Dev-Master
+
+git fetch
+git pull origin dev-master
+git checkout -b $$YOUR BRANCH NAME$$
+~~ do some work ~~
+git status
+ga .
+gc -m "message"
+git push origin $$YOUR BRANCH NAME$$
+
+git checkout dev-master
+git merge $$YOUR BRANCHE NAME$$
+
+
+
+
 # README
 
 # Hello!
@@ -24,3 +41,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+not painFUL
