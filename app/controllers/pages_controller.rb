@@ -8,7 +8,8 @@ class PagesController < ApplicationController
   end
 
   def user_dashboard
-    @user_plants = UserPlant.all
+    # @user_plants = Plant.all
+    @reminders = Reminder.all
   end
 
 end

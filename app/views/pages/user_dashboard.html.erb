@@ -7,7 +7,22 @@
   <%# end %>
 <%# end %>
 
-<br>
-<br>
-
 <%#= link_to "BROWSE", browse_path %>
+
+<% if policy(Reminder).create? %>
+<%= link_to "Create a new reminder", new_reminder_path %>
+<% end %>
+
+<% @reminders.each do |r| %>
+  <p><%= r.name %>
+  <%= r.date %>
+  <%= r.description %>
+    <% if policy(Reminder).edit? %>
+  <%= link_to "Edit", edit_reminder_path(r) %>
+  <% end %>
+    <% if policy(Reminder).destroy? %>
+  <%= link_to "Delete", reminder_path(r), method: :delete %>
+  <% end %></p>
+<% end %>
+
+

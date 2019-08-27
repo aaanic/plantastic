@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :environment_users
-  has_many :environments, through: :environment_users
+  belongs_to :environment
+  # has_many :environment_users
+  # has_many :environments, through: :environment_users
 
   has_many :reminders
 end
