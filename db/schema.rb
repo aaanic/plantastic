@@ -10,9 +10,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_08_26_150938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "environment_plants", force: :cascade do |t|
+    t.string "nickname"
+    t.bigint "plant_id"
+    t.bigint "environment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["environment_id"], name: "index_environment_plants_on_environment_id"
+    t.index ["plant_id"], name: "index_environment_plants_on_plant_id"
+  end
+
+  create_table "environment_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "environment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["environment_id"], name: "index_environment_users_on_environment_id"
+    t.index ["user_id"], name: "index_environment_users_on_user_id"
+  end
+
+  create_table "environments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string "name"
+    t.string "latin_name"
+    t.string "category"
+    t.string "max_height"
+    t.string "care_level"
+    t.string "light_preference"
+    t.text "description"
+    t.string "plant_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reminders_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "environment_plants", "environments"
+  add_foreign_key "environment_plants", "plants"
+  add_foreign_key "environment_users", "environments"
+  add_foreign_key "environment_users", "users"
+  add_foreign_key "reminders", "users"
 end
