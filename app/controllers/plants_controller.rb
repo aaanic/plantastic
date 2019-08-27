@@ -1,4 +1,7 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
     @plants = Plant.all
@@ -12,5 +15,4 @@ class PlantsController < ApplicationController
     #   render :show
     # end
   end
-
 end

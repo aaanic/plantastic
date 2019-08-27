@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def landing_page
   end
 
@@ -11,5 +10,4 @@ class PagesController < ApplicationController
     # @user_plants = Plant.all
     @reminders = Reminder.all
   end
-
 end
