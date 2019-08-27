@@ -1,5 +1,18 @@
 <h1>All plants</h1>
 
+<div class="content-container">
+  <div class="card-container">
+
 <% @plants.each do |plant| %>
-<p><%= link_to plant.name, plant_path(plant)%></p>
+<%= link_to plant_path(plant) do %>
+<div class="card">
+  <img class="card-img-top" src="<%= plant.remote_image_url %>">
+  <div class="card-body">
+    <h5 class="card-category"><%= plant.category %></h5>
+    <h3 class="card-title"><%= plant.name %></h3>
+    <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+    <a href="#" class="card-care-tag">Go somewhere</a>
 <% end %>
+<% end %>
+  </div>
+</div>
