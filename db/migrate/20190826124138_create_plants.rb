@@ -8,7 +8,7 @@ class CreatePlants < ActiveRecord::Migration[5.2]
       t.string :care_level
       t.string :light_preference
       t.text :description
-      t.string :plant_image
+      t.string :remote_image_url
 
       t.timestamps
     end

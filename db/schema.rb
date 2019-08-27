@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_114232) do
+ActiveRecord::Schema.define(version: 2019_08_27_160715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,10 @@ ActiveRecord::Schema.define(version: 2019_08_27_114232) do
     t.string "care_level"
     t.string "light_preference"
     t.text "description"
-    t.string "plant_image"
+    t.string "remote_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "specifics"
   end
 
   create_table "reminders", force: :cascade do |t|
