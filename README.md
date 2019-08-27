@@ -1,6 +1,9 @@
 Using Master and Dev-Master
 
+if dev-master does not exist use:
 git fetch
+
+
 git pull origin dev-master
 git checkout -b $$YOUR BRANCH NAME$$
 ~~ do some work ~~
@@ -8,9 +11,14 @@ git status
 ga .
 gc -m "message"
 git push origin $$YOUR BRANCH NAME$$
-
 git checkout dev-master
-git merge $$YOUR BRANCHE NAME$$
+
+send slack message to group so we can review
+Christine will check content
+Thomas will check code and merge abilities
+
+
+repeat process!
 
 
 
