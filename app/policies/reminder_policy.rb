@@ -10,29 +10,28 @@ class ReminderPolicy < ApplicationPolicy
   end
 
   def show?
-    user_is_logged?
   end
 
   def create?
-    !user.nil?
+    user_exists?
   end
 
   def edit?
-    user_is_logged?
+    user_exists?
   end
 
   def update?
-    user_is_logged?
+    user_exists?
   end
 
   def destroy?
-    user_is_logged?
+    user_exists?
   end
 
   private
 
-  def user_is_logged?
+  def user_exists?
     # record.user == user
-    true
+    !user.nil?
   end
 end
