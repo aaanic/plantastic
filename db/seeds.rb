@@ -1,12 +1,12 @@
+puts "Rendering Geller's Flat"
+ny_flat = Environment.create!(name: "The Geller's New York Flat")
+puts "Welcome Ross, Rachel and Emma"
+
 puts "Rachel and Ross have a baby!"
-User.create!(username: "greeny", first_name: "emma", last_name: "green", email: "emma@green.com", password: "iamgreen")
+User.create!(username: "greeny", first_name: "emma", last_name: "green", email: "emma@green.com", password: "iamgreen", environment: ny_flat)
 puts "Emma was born!"
 
 puts ""
-
-puts "Rendering Geller's Flat"
-Environment.create!(name: "The Geller's New York Flat")
-puts "Welcome Ross, Rachel and Emma"
 
 puts ""
 
