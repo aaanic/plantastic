@@ -1,6 +1,9 @@
+
 ### Using Master and Dev-Master
 
-- git fetch
+git fetch
+
+
 - git pull origin dev-master
 - git checkout -b $$YOUR BRANCH NAME$$
 - ~~ do some work ~~
@@ -8,8 +11,14 @@
 - ga .
 - gc -m "message"
 - git push origin $$YOUR BRANCH NAME$$
-
 - git checkout dev-master
+
+- send slack message to group so we can review
+- Christine will check content
+- Thomas will check code and merge abilities
+
+
+- repeat process!
 
 
 
@@ -39,5 +48,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-not painFUL

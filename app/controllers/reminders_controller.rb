@@ -30,6 +30,8 @@ class RemindersController < ApplicationController
   end
 
   def update
+    find_reminder
+    # authorize @reminder
     if @reminder.update(reminder_params)
       redirect_to reminder_path(@reminder)
     else
@@ -38,8 +40,10 @@ class RemindersController < ApplicationController
   end
 
   def destroy
+    find_reminder
     @reminder.destroy
-    redirect_to reminders_path
+    redirect_to user_dashboard_path(@reminder)
+    authorize @reminder
   end
 
   private
