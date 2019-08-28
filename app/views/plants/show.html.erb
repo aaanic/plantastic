@@ -1,24 +1,34 @@
-<h1>Plant Show Page</h1>
+<% if policy(Plant).show? %>
+    <h1>Plant Show Page</h1>
 
-  <%= @plant.name %>
-  <%= @plant.latin_name %>
-  <%= @plant.category %>
-  <%= @plant.max_height %>
-  <%= @plant.care_level %>
-  <%= @plant.light_preference %>
-  <%= @plant.description %>
+      <%= @plant.name %>
+      <%= @plant.latin_name %>
+      <%= @plant.category %>
+      <%= @plant.max_height %>
+      <%= @plant.care_level %>
+      <%= @plant.light_preference %>
+      <%= @plant.description %>
 
-<%# This code will be replaced with the pundit, so there wont be an if-condition %>
-<% if current_user.nil? %>
-<%= link_to new_user_session_path do %>
-<button class="btn btn-black">Add plant</button>
-  <% end %>
+  <% if current_user.present? %>
+    <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
+          <button class="btn btn-black">Add plant</button>
+        <% end %>
   <% else %>
-  <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment_id, plant_id: @plant.id}), method: :post do %>
-  <button class="btn btn-black">Add plant</button>
+      <%= link_to new_user_session_path do %>
+      <button class="btn btn-black">Add plant</button>
+    <% end %>
   <% end %>
 <% end %>
 
-<%# form_tag environment_plant_path do %>
-  <%#= submit_tag "Add This Plant!" %>
+<%# This code will be replaced with the pundit, so there wont be an if-condition %>
+<%# if current_user.nil? %>
+<%#= link_to new_user_session_path do %>
+<!-- <button class="btn btn-black">Add plant</button> -->
+  <%# end %>
+  <%# else %>
+  <%#= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment_id, plant_id: @plant.id}), method: :post do %>
+  <!-- <button class="btn btn-black">Add plant</button> -->
+  <%# end %>
 <%# end %>
+
+

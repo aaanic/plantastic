@@ -1,11 +1,13 @@
 class EnvironmentPlantsController < ApplicationController
-  before_action :find_environment_plant, only: [:show, :edit, :update, :destroy]
+  before_action :find_environment_plant, only: [:show, :update, :destroy]
+  # skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-    @environment_plants = EnvironmentPlant.all
+    @environment_plants = policy_scope(Plant)
   end
 
   def show
+    find_environment_plant
   end
 
   def create
@@ -36,8 +38,9 @@ class EnvironmentPlantsController < ApplicationController
   end
 
   def destroy
+    find_environment_plant
     @environment_plant.destroy
-    redirect_to environment_plants_path
+    redirect_to dashboard_path
   end
 
   private
