@@ -18,7 +18,7 @@ class RemindersController < ApplicationController
     @reminder.environment = current_user.environment
     authorize @reminder
     if @reminder.save
-      redirect_to user_dashboard_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class RemindersController < ApplicationController
   def update
     find_reminder
     if @reminder.update(reminder_params)
-      redirect_to reminder_path(@reminder)
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -40,8 +40,7 @@ class RemindersController < ApplicationController
   def destroy
     find_reminder
     @reminder.destroy
-    redirect_to user_dashboard_path(@reminder)
-    authorize @reminder
+    redirect_to dashboard_path
   end
 
   private
