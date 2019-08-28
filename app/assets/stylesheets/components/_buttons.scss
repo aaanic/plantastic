@@ -1,0 +1,64 @@
+.btn {
+  font-family: 'Merriweather', serif;
+  font-size: 1em;
+  padding: 0.8em 2em;
+  border-radius: 40px;
+  min-width: 200px;
+  max-width: 250px;
+  text-transform: capitalize;
+  display: block;
+
+}
+
+.btn-small {
+  font-size: 0.8em;
+  padding: 0.4em 1em;
+  border-radius: 40px;
+  min-width: 100px;
+  max-width: 250px;
+  text-transform: capitalize;
+  background-color: transparent;
+}
+
+.btn-black {
+  background: $dark-gray;
+  color: $white;
+  border: solid 1px $dark-gray;
+  &:hover {
+    background: $black;
+    border-color: $black;
+  }
+  &:active {
+    outline: 1px solid $light-brown;
+  }
+}
+
+.btn-outline-black {
+  border: solid 1px $dark-gray;
+  background-color: transparent;
+  &:hover {
+    background: $dark-gray;
+    color: $white;
+    // opacity: 0.7;
+  }
+}
+
+.btn-white {
+  border: solid 1px $white;
+  background-color: $white;
+  color: rgba(0, 0, 0, 0.5);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  border: solid 1px $white;
+  color: $white;
+  &:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
