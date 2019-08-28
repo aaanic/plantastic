@@ -8,6 +8,17 @@
 
 <h1>Search for a plant</h1>
 
+<%= form_tag plants_path, method: :get, class: "" do %>
+    <%= text_field_tag :query,
+        params[:query],
+        class: "",
+        placeholder: "Search Plants"
+      %>
+  <div class="">
+    <%= submit_tag "Search", class: "" %>
+  </div>
+<% end %>
+
 <%= link_to plants_path do %>
 <button class="btn btn-black">Browse</button>
 <% end %>
