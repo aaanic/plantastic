@@ -4,7 +4,13 @@ class PlantsController < ApplicationController
   skip_after_action :verify_policy_scoped
 
   def index
-    @plants = Plant.all
+    user_input = params[:query]
+    if user_input
+      plants = Plant.search_all_plants(user_input)
+    else
+      plants = Plant.all
+    end
+    @plants = plants.order(created_at: :desc)
   end
 
   def show
