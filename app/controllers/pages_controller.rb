@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def landing_page
   end
 
@@ -10,6 +9,7 @@ class PagesController < ApplicationController
   def user_dashboard
     # @user_plants = Plant.all
     @reminders = Reminder.all
+    @environment = current_user.environment
+    @environment_plants = current_user.environment.environment_plants
   end
-
 end

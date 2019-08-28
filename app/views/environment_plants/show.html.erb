@@ -1,2 +1,11 @@
-<h1>UserPlants#show</h1>
-<p>Find me in app/views/user_plants/show.html.erb</p>
+<h1><%= @environment_plant.plant.name %></h1>
+<img src='<%= @environment_plant.plant.remote_image_url %>' alt="">
+
+<h2> <%= @environment_plant.plant.latin_name %> </h2>
+<h5>  <%= @environment_plant.plant.category %></h5>
+
+<p><%= @environment_plant.plant.max_height %></p>
+<p><%= @environment_plant.plant.care_level %></p>
+<p> <%= @environment_plant.plant.light_preference %></p>
+
+<p><%= @environment_plant.plant.description %></p>
