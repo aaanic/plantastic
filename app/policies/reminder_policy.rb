@@ -10,6 +10,7 @@ class ReminderPolicy < ApplicationPolicy
   end
 
   def show?
+    user_exists?
   end
 
   def create?

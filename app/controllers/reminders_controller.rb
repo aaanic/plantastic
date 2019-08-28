@@ -26,12 +26,10 @@ class RemindersController < ApplicationController
 
   def edit
     find_reminder
-    authorize @reminder
   end
 
   def update
     find_reminder
-    # authorize @reminder
     if @reminder.update(reminder_params)
       redirect_to reminder_path(@reminder)
     else
@@ -50,6 +48,7 @@ class RemindersController < ApplicationController
 
   def find_reminder
     @reminder = Reminder.find(params[:id])
+    authorize @reminder
   end
 
   def reminder_params
