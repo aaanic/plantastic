@@ -1,14 +1,16 @@
-<h2>Log in</h2>
+<body class="gradient-background">
+
+<h1>Log in</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email" }, class: 'transparent-input' %>
     <%= f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "current-password", class: 'transparent-input' } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
@@ -17,4 +19,21 @@
   </div>
 <% end %>
 
+  <h1>This is a form</h1>
+<form action="">
+
+<div class="space"></div>
+
+  <input class='transparent-input' type="text" placeholder="Name" style="display: block; margin: 0 auto">
+
+<div class="space"></div>
+
+  <input class='transparent-input' type="text" placeholder="Email" style="display: block; margin: 0 auto">
+  <div class="space"></div>
+  <button class="btn btn-black" style="display: block; margin: 0 auto">Login</button>
+
+</form>
+
 <%= render "devise/shared/links" %>
+
+</body>

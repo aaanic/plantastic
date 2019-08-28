@@ -6,6 +6,7 @@
     <%#= link_to "Delete Plant", method: :delete %>
   <%# end %>
 <%# end %>
+<h1><%= current_user.username %>'s Dashboard</h1>
 
 <%#= link_to "BROWSE", browse_path %>
 
@@ -26,3 +27,28 @@
 <% end %>
 
 
+<h3><%= @environment.name %></h3>
+
+<div class="content-container">
+  <div class="card-container">
+
+<% @environment_plants.each do |ep| %>
+<div class="card">
+  <%= link_to environment_plant_path(ep) do %>
+  <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
+  <div class="card-body">
+    <h5 class="card-category"><%= ep.plant.category %></h5>
+    <% if ep.nickname.nil? %>
+    <h3 class="card-title"><%= ep.plant.name %></h3>
+    <% else %>
+    <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
+    <% end %>
+    <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
+    <a href="#" class="card-care-tag">Go somewhere</a>
+     </div>
+  <% end %>
+</div>
+<% end %>
+
+</div>
+</div>

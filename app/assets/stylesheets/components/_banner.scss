@@ -1,0 +1,26 @@
+.banner {
+  height: 100vh;
+  color: $white;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.bg-img-plants {
+  background-image: url('https://source.unsplash.com/bBiuSdck8tU');
+  height: 100%;
+  z-index: 1;
+  filter: blur(4px);
+}
+
+.banner-content {
+  position: fixed;
+  left: 0;
+  top: 4rem;
+  right: 0;
+  z-index: 9999;
+  h1, p {
+    margin: 0 auto;
+    text-align: center;
+  }
+}

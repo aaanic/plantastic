@@ -7,7 +7,11 @@
   <%= @plant.care_level %>
   <%= @plant.light_preference %>
   <%= @plant.description %>
-  <%= @plant.plant_image %>
+
+
+  <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment_id, plant_id: @plant.id}), method: :post do %>
+  <button class="btn btn-black">Add plant</button>
+  <% end %>
 
 <%# form_tag environment_plant_path do %>
   <%#= submit_tag "Add This Plant!" %>
