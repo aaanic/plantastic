@@ -25,14 +25,13 @@ h2, h4, body {
   font-weight: 400;
   margin: 0;
 }
-
 h1 {
-  font-size: 2rem;
+  font-size: calc(2.5rem + 0.3vw);
   line-height: 130%;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: calc(1.75rem + 0.3vw);
 }
 
 h3 {
@@ -50,11 +49,14 @@ h5 {
 }
 
 body {
-  font-size: 0.75rem;
+  font-size: calc(0.8rem + 0.3vw);
   margin: 0;
   color: #302E2E;
   a {
     text-decoration: none;
     color: #302E2E;
+  }
+  p {
+    line-height: calc(1.5rem + 0.3vw);
   }
 }
