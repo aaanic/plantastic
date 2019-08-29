@@ -1,3 +1,27 @@
+<div class="banner">
+  <div class="bg-img-plants"></div>
+  <div class="banner-content">
+
 <%= link_to "Log in", new_user_session_path %>
 <%= link_to "Sign up", new_user_registration_path %>
 <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
+
+<h1>Search for a plant</h1>
+
+<%= form_tag plants_path, method: :get, class: "" do %>
+    <%= text_field_tag :query,
+        params[:query],
+        class: "",
+        placeholder: "Search Plants"
+      %>
+  <div class="">
+    <%= submit_tag "Search", class: "" %>
+  </div>
+<% end %>
+
+<%= link_to plants_path do %>
+<button class="btn btn-black">Browse</button>
+<% end %>
+
+</div>
+</div>

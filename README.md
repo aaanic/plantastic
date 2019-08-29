@@ -12,6 +12,7 @@ git fetch
 - gc -m "message"
 - git push origin $$YOUR BRANCH NAME$$
 - git checkout dev-master
+- git push origin $$YOUR BRANCH NAME$$
 
 - send slack message to group so we can review
 - Christine will check content

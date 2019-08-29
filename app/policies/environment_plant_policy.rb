@@ -10,10 +10,30 @@ class EnvironmentPlantPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    env_plant_belongs_to_users_env?
   end
 
   def create?
-    true
+    env_plant_belongs_to_users_env?
   end
+
+  def update?
+    env_plant_belongs_to_users_env?
+  end
+
+  def destroy?
+    env_plant_belongs_to_users_env?
+  end
+
+  private
+
+  def env_plant_belongs_to_users_env?
+    user.environment.environment_plants.each do |e|
+      return true if e == record
+    end
+  end
+
+  # def user_exists?
+  #   !user.nil?
+  # end
 end
