@@ -14,27 +14,28 @@
   <% else %>
       <%= link_to new_user_session_path do %>
       <button class="btn-round btn-black overlap-right">+</button>
-      </div>
-  </div>
+
     <% end %>
   <% end %>
 
-
+  </div>
 
 <div class="detail-content">
 <div class="titles">
 <h1 class="title"><%= @plant.name %></h1>
 <h2 class="subtitle"><%= @plant.latin_name %></h2>
 </div>
+<div class="add-option">
   <% if current_user.present? %>
     <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="add-option btn btn-black">Add plant</button>
+          <button class="btn btn-black">Add plant</button>
         <% end %>
   <% else %>
       <%= link_to new_user_session_path do %>
-      <button class="add-option btn btn-black">Add plant</button>
+      <button class="btn btn-black">Add plant</button>
     <% end %>
   <% end %>
+  </div>
 
 
 <p class="description-text"><%= @plant.description %></p>
