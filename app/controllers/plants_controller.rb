@@ -10,7 +10,7 @@ class PlantsController < ApplicationController
     else
       plants = Plant.all
     end
-    @plants = plants.order(created_at: :desc)
+    @plants = plants.sort_by { |p| p.name }
   end
 
   def show
