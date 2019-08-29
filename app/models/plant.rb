@@ -7,4 +7,8 @@ class Plant < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+  def related
+    Plant.all.reject { |x| x == self }
+  end
 end

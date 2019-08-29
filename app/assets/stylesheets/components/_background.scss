@@ -13,6 +13,10 @@
   background-color: #FAF9F7;
 }
 
+.green {
+  background-color: rgba(122,145,116, 0.08);
+}
+
 @media only screen and (min-device-width: 1200px) {
 .green-background {
   height: 35vh;
@@ -23,3 +27,5 @@
   z-index: 10;
 }
 }
+
+

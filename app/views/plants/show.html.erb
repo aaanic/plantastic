@@ -1,5 +1,7 @@
  <div class="green-background"></div>
 
+ <div class="invisible"></div>
+
  <div class="detail-content-container">
   <div class="header">
     <h5 class="category-tag"><%= @plant.latin_name %>
@@ -57,6 +59,24 @@
 </div>
 
 
+<div class= 'related-content'>
+  <h2>Other plants you might like</h2>
+  <div class="card-container">
+<% @plant.related.sample(3).each do |plant| %>
+<div class="card">
+    <%= link_to plant_path(plant) do %>
+    <img class="card-img-top" src="<%= plant.remote_image_url %>">
+    <div class="card-body">
+      <h5 class="card-category"><%= plant.category %></h5>
+      <h3 class="card-title"><%= plant.name %></h3>
+      <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+      <a href="#" class="card-care-tag">Go somewhere</a>
+       </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+</div>
 <%# This code will be replaced with the pundit, so there wont be an if-condition %>
 <%# if current_user.nil? %>
 <%#= link_to new_user_session_path do %>
