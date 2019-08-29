@@ -1,7 +1,9 @@
+include Pundit
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
   before_action :authenticate_user!
-  include Pundit
+  before_action :store_current_location, unless: :devise_controller?
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -15,6 +17,9 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
