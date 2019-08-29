@@ -8,6 +8,8 @@ class Reminder < ApplicationRecord
 
   def schedule_reminder
     puts "this is the shedule bit"
-    SendRemindersJob.set(wait_until: self.date).perform_later(self.id)
+    unless self.frequency == 'none'
+      SendRemindersJob.set(wait_until: self.date).perform_later(self.id)
+    end
   end
 end
