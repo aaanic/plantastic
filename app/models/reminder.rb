@@ -12,4 +12,6 @@ class Reminder < ApplicationRecord
       SendRemindersJob.set(wait_until: self.date).perform_later(self.id)
     end
   end
+
+
 end

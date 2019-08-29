@@ -9,7 +9,7 @@
     <%= f.input :description, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.input :frequency, class: "form-control" %>
+    <%= f.input :frequency, collection: FREQUENCIES, prompt: "How often do you want your reminders", class: "form-control" %>
   </div>
   <br>
   <%= f.button :submit, class: "btn btn-primary" %>
