@@ -1,20 +1,54 @@
-<h1><%= @environment_plant.plant.name %></h1>
-<img src='<%= @environment_plant.plant.remote_image_url %>' alt="">
+<div class="green-background"></div>
 
-<h2> <%= @environment_plant.plant.latin_name %> </h2>
-<h5>  <%= @environment_plant.plant.category %></h5>
+ <div class="detail-content-container">
+  <div class="header">
+    <h5 class="category-tag"><%= @environment_plant.plant.latin_name %>
+      <%= @environment_plant.plant.category %></h5>
+  <img class="header-img" src="<%= @environment_plant.plant.remote_image_url %>">
+  <% if policy(EnvironmentPlant).destroy? %>
+    <%= link_to environment_plant_path, method: :delete do %>
+          <button class="btn-round btn-black overlap-right">-</button>
+        <% end %>
+  <% end %>
+
+  </div>
+
+<div class="detail-content">
+<div class="titles">
+<h1 class="title"><%= @environment_plant.plant.name %></h1>
+<h2 class="subtitle"><%= @environment_plant.plant.latin_name %></h2>
+</div>
+<div class="add-option">
+  <% if policy(EnvironmentPlant).destroy? %>
+    <%= link_to environment_plant_path, method: :delete do %>
+          <button class="btn btn-black">Revome plant</button>
+        <% end %>
+  <% end %>
+  </div>
+
+
+<p class="description-text"><%= @environment_plant.plant.description %></p>
+
+<div class="icons">
+      <div>
+      <i class="icon fas fa-sun"></i>
+      <p class="icon-text"> <%= @environment_plant.plant.light_preference %></p>
+      </div>
+      <div>
+      <i class="icon fas fa-tint"></i>
+      <p class="icon-text">  <%= @environment_plant.plant.care_level %></p>
+      </div>
+      <div>
+      <i class="icon fas fa-band-aid"></i>
+      <p class="icon-text"><%= @environment_plant.plant.max_height %></p>
+      </div>
+    </div>
+</div>
+</div>
+
 <p> <%= @environment_plant.nickname %></p>
 
-<p><%= @environment_plant.plant.max_height %></p>
-<p><%= @environment_plant.plant.care_level %></p>
-<p> <%= @environment_plant.plant.light_preference %></p>
 
-<p><%= @environment_plant.plant.description %></p>
-
-
-<% if policy(EnvironmentPlant).destroy? %>
-    <%= link_to "Delete", environment_plant_path, method: :delete %>
-<% end %>
 
 <% if policy(EnvironmentPlant).update? %>
 <%= simple_form_for @environment_plant do |f| %>

@@ -8,7 +8,7 @@
   <img class="header-img" src="<%= @plant.remote_image_url %>">
   <% if current_user.present? %>
     <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="btn-round btn-black overlap-right">+</button>
+          <button class="btn-round btn-outline-black overlap-right white-background">+</button>
 
         <% end %>
   <% else %>
@@ -28,11 +28,11 @@
 <div class="add-option">
   <% if current_user.present? %>
     <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="btn btn-black">Add plant</button>
+          <button class="btn btn-outline-black white-background">Add plant</button>
         <% end %>
   <% else %>
       <%= link_to new_user_session_path do %>
-      <button class="btn btn-black">Add plant</button>
+      <button class="btn btn-outline-black white-background">Add plant</button>
     <% end %>
   <% end %>
   </div>

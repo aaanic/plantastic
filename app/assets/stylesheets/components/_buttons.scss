@@ -1,3 +1,4 @@
+
 .btn {
   font-family: 'Merriweather', serif;
   font-size: 1em;
@@ -21,7 +22,6 @@
   text-transform: capitalize;
   background-color: transparent;
 }
-
 .btn-round {
   font-family: 'Merriweather', serif;
   font-size: 2rem;
@@ -70,4 +70,8 @@
     background-color: white;
     color: rgba(0, 0, 0, 0.5);
   }
+}
+
+.white-background {
+  background-color: $white;
 }
