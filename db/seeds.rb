@@ -2,13 +2,9 @@ puts "Rendering Geller's Flat"
 ny_flat = Environment.create!(name: "The Geller's New York Flat")
 puts "Welcome Ross, Rachel and Emma"
 
-puts "Rachel and Ross have a baby!"
+puts "Rachel and Ross have a baby..."
 User.create!(username: "greeny", first_name: "emma", last_name: "green", email: "emma@green.com", password: "iamgreen", environment: ny_flat)
 puts "Emma was born!"
-
-puts ""
-
-puts ""
 
 puts "Planting seeds"
 
@@ -42,6 +38,18 @@ plants_attributes = [
   {:name=>"Panda Plant", :category=>"Succulent", :description=>"Kalanchoe tomentosa, also known as Panda Plant, is a species of Kalanchoe that is extra fuzzy to aid in its succulent abilities. The fuzz acts as a sun blocker, to help dim the amount of sunlight that hits the plant. This helps it to cool down and prevent cellular damage from overexposure from the sun. The fuzz also blocks the wind from blowing against the plant directly, preventing water loss. Its hairs also help the plant blend into its environment to prevent death by herbivory (being eaten by animals!). The hairs make dark brown stripes which grow in an irregular pattern to further camouflage the plant from its herbivore predators.", :latin_name=>"Kalanchoe tomentosa", :light_preference=>"bright direct", :max_height=>"30–60cm", :specifics=>"", :remote_image_url=>"https://i.imgur.com/rP1Xk8K.jpg"},
   {:name=>"Haworthia Zebra", :category=>"Succulent", :description=>"Haworthia are hardy succulents that are so closely related to gasterias and aloes that they can cross breed with each other freely to form hybrids. With such a variable morphology and crossing habits, there is much debate to the placement of these plants within the family, Asphodelaceae (subfamily Alooideae). Due to so many naturally-occurring hybrids, identification and definition of any species is difficult. Some hybrids have accidentally been named as separate species, which adds to the confusion. Some scientists even think that they should all be separate species under one genus.", :latin_name=>"Haworthia", :light_preference=>"bright direct", :max_height=>"4–20cm", :specifics=>"", :remote_image_url=>"https://i.imgur.com/xfc4mnR.jpg"}
   ]
-puts "growing plants"
+puts "Growing plants"
 Plant.create!(plants_attributes)
 puts "your #{Plant.count} plants are fully grown"
+
+puts "Grabbing a pen and paper"
+articles_attributes = [
+  {title: "Top tips to care for your plant", text: "General guidelines
+Your soil is like a sponge. If your soil is moist to begin with, hold off on watering for now. If water pours out through the drainage holes immediately, your soil is actually bone dry and the soil is repelling water, rather than soaking it in. Avoid pouring water onto bone dry soil. Water will only move through and around the edges of your planter and will not be absorbed by the roots. Your plant should absorb water slowly through its roots so, before you water again, check how dry the soil is. Use your fingers and feel if the soil is wet at least 2 inches below the surface. If so, you can add water.
+", remote_image_url: "https://i.imgur.com/KFfRXaU.jpg"}, {title: "Help! Why are my plant's leaves turning yellow?", text: "The truth is, yellow leaves mean different things depending on (1) the plant they’re on and (2) what other symptoms the plant is showing. Overwatering, underwatering, mineral deficiency, temperature stress, and so on can all be causes. Below, we’ve broken it down to some simple symptomatic math with a solution to get rid of yellowing leaves.
+", remote_image_url: "https://i.imgur.com/I7ayCAJ.jpg"}
+]
+
+puts "Writing articles"
+Article.create!(articles_attributes)
+puts "#{Article.count} articles written"
