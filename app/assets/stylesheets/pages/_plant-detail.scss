@@ -2,14 +2,8 @@
   padding: 2em;
 }
 
-.description-text {
-  padding: 0 1.5em;
-}
-
-
 .subtitle {
   opacity: 0.6;
-  margin-bottom: 1em;
 }
 
 .category-tag {
@@ -46,7 +40,7 @@
   }
 
   .titles {
-    align-self: center;
+    align-self: start;
   }
 
   .detail-content {
@@ -71,4 +65,35 @@
     position: relative;
     bottom: 50%;
   }
+
+  .invisible {
+    height: 65vh;
+  }
+}
+
+.empty-nickname-input {
+  width: 100%;
+  margin-top: 1em;
+  font-size: calc(1.5rem + 0.3vw);
+  font-style: italic;
+  border: none;
+  background-color: transparent;
+  opacity: 0.6;
+   &:focus {
+    outline: 0;
+    border-bottom: 0.5px solid $dark-gray;
+   }
+}
+
+.plant-nickname-input {
+  width: 100%;
+  margin-top: 1em;
+  font-size: calc(1.5rem + 0.3vw);
+  border: none;
+  color: $orange;
+  background-color: transparent;
+  &:focus{
+    outline: 0;
+  border-bottom: 0.5px solid $orange;
+}
 }

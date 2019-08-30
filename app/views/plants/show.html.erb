@@ -1,5 +1,6 @@
-<% if policy(Plant).show? %>
  <div class="green-background"></div>
+
+ <div class="invisible"></div>
 
  <div class="detail-content-container">
   <div class="header">
@@ -8,7 +9,7 @@
   <img class="header-img" src="<%= @plant.remote_image_url %>">
   <% if current_user.present? %>
     <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="btn-round btn-black overlap-right">+</button>
+          <button class="btn-round btn-outline-black overlap-right white-background">+</button>
 
         <% end %>
   <% else %>
@@ -28,11 +29,11 @@
 <div class="add-option">
   <% if current_user.present? %>
     <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="btn btn-black">Add plant</button>
+          <button class="btn btn-outline-black white-background">Add plant</button>
         <% end %>
   <% else %>
       <%= link_to new_user_session_path do %>
-      <button class="btn btn-black">Add plant</button>
+      <button class="btn btn-outline-black white-background">Add plant</button>
     <% end %>
   <% end %>
   </div>
@@ -56,8 +57,26 @@
     </div>
 </div>
 </div>
-<% end %>
 
+
+<div class= 'related-content'>
+  <h2>Other plants you might like</h2>
+  <div class="card-container">
+<% @plant.related.sample(3).each do |plant| %>
+<div class="card">
+    <%= link_to plant_path(plant) do %>
+    <img class="card-img-top" src="<%= plant.remote_image_url %>">
+    <div class="card-body">
+      <h5 class="card-category"><%= plant.category %></h5>
+      <h3 class="card-title"><%= plant.name %></h3>
+      <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+      <a href="#" class="card-care-tag">Go somewhere</a>
+       </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+</div>
 <%# This code will be replaced with the pundit, so there wont be an if-condition %>
 <%# if current_user.nil? %>
 <%#= link_to new_user_session_path do %>

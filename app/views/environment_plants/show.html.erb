@@ -1,27 +1,66 @@
-<h1><%= @environment_plant.plant.name %></h1>
-<img src='<%= @environment_plant.plant.remote_image_url %>' alt="">
+<div class="green-background"></div>
 
-<h2> <%= @environment_plant.plant.latin_name %> </h2>
-<h5>  <%= @environment_plant.plant.category %></h5>
-<p> <%= @environment_plant.nickname %></p>
+<div class="detail-content-container">
+  <div class="header">
+    <h5 class="category-tag"><%= @environment_plant.plant.latin_name %>
+      <%= @environment_plant.plant.category %></h5>
+      <img class="header-img" src="<%= @environment_plant.plant.remote_image_url %>">
+      <% if policy(EnvironmentPlant).destroy? %>
+      <%= link_to environment_plant_path, method: :delete do %>
+      <button class="btn-round btn-black overlap-right">-</button>
+      <% end %>
+      <% end %>
 
-<p><%= @environment_plant.plant.max_height %></p>
-<p><%= @environment_plant.plant.care_level %></p>
-<p> <%= @environment_plant.plant.light_preference %></p>
+    </div>
 
-<p><%= @environment_plant.plant.description %></p>
+    <div class="detail-content">
+      <div class="titles">
+        <h1 class="title"><%= @environment_plant.plant.name %></h1>
+        <h2 class="subtitle"><%= @environment_plant.plant.latin_name %></h2>
+        <% nickname = @environment_plant.nickname  %>
+        <% if policy(EnvironmentPlant).update? %>
+            <% if nickname.nil? %>
+              <%= simple_form_for @environment_plant do |f| %>
+              <%= f.input :nickname, placeholder: "Add a Nickname",
+              input_html: { class: "empty-nickname-input" }, label: false %>
+              <% end %>
+            <% else %>
+              <%= simple_form_for @environment_plant do |f| %>
+              <%= f.input :nickname, placeholder: nickname,
+              input_html: { class: "plant-nickname-input" }, label: false %>
+              <% end %>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="add-option">
+        <% if policy(EnvironmentPlant).destroy? %>
+        <%= link_to environment_plant_path, method: :delete do %>
+        <button class="btn btn-black">Remove plant</button>
+        <% end %>
+        <% end %>
+      </div>
 
 
-<% if policy(EnvironmentPlant).destroy? %>
-    <%= link_to "Delete", environment_plant_path, method: :delete %>
-<% end %>
+      <p class="description-text"><%= @environment_plant.plant.description %></p>
 
-<% if policy(EnvironmentPlant).update? %>
-<%= simple_form_for @environment_plant do |f| %>
-  <%= f.input :nickname, placeholder: "Gary the Basil" %>
-  <%= f.button :submit %>
-<% end %>
-<% end %>
+      <div class="icons">
+        <div>
+          <i class="icon fas fa-sun"></i>
+          <p class="icon-text"> <%= @environment_plant.plant.light_preference %></p>
+        </div>
+        <div>
+          <i class="icon fas fa-tint"></i>
+          <p class="icon-text">  <%= @environment_plant.plant.care_level %></p>
+        </div>
+        <div>
+          <i class="icon fas fa-band-aid"></i>
+          <p class="icon-text"><%= @environment_plant.plant.max_height %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to "Back to Dashboard", dashboard_path %>
+  <p> <%= @environment_plant.nickname %></p>
+
+  <%= link_to "Back to Dashboard", dashboard_path %>
 
