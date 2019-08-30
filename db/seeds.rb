@@ -3,7 +3,7 @@ ny_flat = Environment.create!(name: "The Geller's New York Flat")
 puts "Welcome Ross, Rachel and Emma"
 
 puts "Rachel and Ross have a baby..."
-User.create!(username: "greeny", first_name: "emma", last_name: "green", email: "emma@green.com", password: "iamgreen", environment: ny_flat)
+User.create!(username: "greeny", first_name: "emma", last_name: "green", email: "emma@green.com", password: "iamgreen", environment: ny_flat, admin: true)
 puts "Emma was born!"
 
 puts "Planting seeds"
