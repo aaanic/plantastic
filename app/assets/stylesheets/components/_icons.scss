@@ -7,6 +7,22 @@
 }
 
 
+.svg-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: $dark-gray;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
 .icons {
   width: 60px;
 }
