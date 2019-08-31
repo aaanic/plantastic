@@ -16,7 +16,7 @@
 
 <% @reminders.each do |r| %>
   <p><%= r.name %>
-  <%= r.date %>
+  <%= r.weekday %>
   <%= r.description %>
     <% if policy(Reminder).edit? %>
   <%= link_to "Edit", edit_reminder_path(r) %>
