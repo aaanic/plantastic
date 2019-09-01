@@ -2,6 +2,11 @@
   height: 70vh;
 }
 
+.empty-header-container {
+  height: 10vh;
+  padding: 8vh 0;
+}
+
 @media only screen and (max-device-width: 1200px) {
   .header-img {
     position: center;
