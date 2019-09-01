@@ -18,46 +18,113 @@
   display: block;
 }
 
-/* Modal Content */
-.modal-content {
-  width: 500px;
-  background-color: #F4F4F4;
-  margin: auto;
-  padding: 60px;
-  border-radius: 15px;
-}
 
-
-input {
+/* Reminder Form */
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   border: none;
-  padding: 20px;
+  cursor: pointer;
+}
+
+.select-wrapper {
+  /* ... */
+  position: relative;
+}
+.select-wrapper::before {
+  content: ">";
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  transform: rotate(90deg);
+  color: black;
+  pointer-events: none;
+}
+
+.reminder-container {
+  max-width: 500px;
+  // height: 667px;
   background-color: white;
+  margin: auto;
+  padding: 45px;
+  border-radius: 5px;
 }
 
-label {
-  margin-bottom: 5px;
+.reminder-container input[type="submit"] {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  display: inline-block;
+  cursor: pointer;
 }
 
-.datetime-input-box-wrapper {
-  display: inline-flex;
-  flex: 1px;
-  background-color: inherit;
-  min-width: 0;
-  justify-content: right;
+.reminder-container input, label, select, textarea {
+  display: block;
+/*  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;*/
+}
+
+.reminder-container label {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.reminder-container label[for="title"] {
+  padding-top: 0;
 }
 
 
-.input-field {
-  color: #595858;
-  width: 85%;
-  border-radius: 10px;
-  margin-bottom: 25px;
+.reminder-header-green {
+  position: relative;
+  // height: 50px;
+  padding-bottom: 35px;
+  // background-color: #7A9174;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
 }
 
-.date-alert-flex {
+
+// .reminder-content {
+//   padding: 20px;
+// }
+
+.reminder-input-field-outline {
+  /* max-width: 80%; */
+  width: 100%;
+  padding: 20px;
+  margin: 8px 0;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.reminder-input-field-outline:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px #0066ff;
+}
+
+.reminder-container textarea {
+  height: 120px;
+}
+
+.datetime {
   display: flex;
   justify-content: space-between;
 }
+
+.field {
+  width: calc((100% - 20px) / 2);
+}
+
 
 /* The Close Button */
 .close {

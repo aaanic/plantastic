@@ -15,33 +15,56 @@
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
 
-<div class="btn btn-small btn-outline-black">Test</div>
-
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <form>
-      <h3>Create new Reminder</h3>
+<!--   <div class="modal-content">
+  <span class="close">&times;</span> -->
+
+  <div class="reminder-container">
+
+    <div class="reminder-header-green">
+      <span class="close">&times;</span>
+      <h5>New Reminder</h5>
+      <input type="submit" value="SAVE" class="btn btn-small btn-outline-black">
+    </div>
+
+    <form class="reminder-content">
 
       <label for="title">Title</label>
-      <input type="text" name="Title" placeholder="Title" class="input-field">
+      <input type="text" name="Title" placeholder="Remind me to…" class="reminder-input-field-outline">
 
-      <label for="date">Description</label>
-      <input type="text" name="Description" placeholder="Description" class="input-field">
+      <label for="date">Notes</label>
+      <textarea name="Description" placeholder="Description" class="reminder-input-field-outline">
+      </textarea>
 
-      <div class="date-alert-flex">
-        <div>
-          <label for="date">When</label>
-          <input type="date" name="Date" value="Date" class="input-field" class="datetime-input-box-wrapper">
-        </div>
-        <div>
-          <label for="alert">Alert</label>
-          <input type="time" name="usr_time" class="input-field">
+      <div>
+        <label for="date">When</label>
+        <div class="datetime">
+          <div class="field">
+            <input type="date" name="Date" value="Date" class="reminder-input-field-outline">
+          </div>
+          <div class="field">
+            <input type="time" name="usr_time" class="reminder-input-field-outline">
+          </div>
         </div>
       </div>
+
+      <div>
+        <label for="alert">Remind me</label>
+        <div class="select-wrapper">
+          <select id="alert" name="alert" class="reminder-input-field-outline">
+            <option value="day">every day</option>
+            <option value="week">every week</option>
+            <option value="two-weeks">every 2 weeks</option>
+          </select>
+        </div>
+      </div>
+<!--       <div class="btn btn-black">Save</div> -->
     </form>
   </div>
+
+
+</div>
 </div>
 <!-- End Modal create reminder -->
 
