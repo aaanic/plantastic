@@ -1,54 +1,120 @@
 <%# if @user_plants %>
-  <%# @user_plants.each do |user_plant| %>
-    <%#= user_plant.nickname %>
-    <%#= user_plant.plant.name %>
-    <%#= link_to "Edit Plant", edit_user_plant_path(user_plant) %>
-    <%#= link_to "Delete Plant", method: :delete %>
-  <%# end %>
+<%# @user_plants.each do |user_plant| %>
+<%#= user_plant.nickname %>
+<%#= user_plant.plant.name %>
+<%#= link_to "Edit Plant", edit_user_plant_path(user_plant) %>
+<%#= link_to "Delete Plant", method: :delete %>
+<%# end %>
 <%# end %>
 <h1><%= current_user.username %>'s Dashboard</h1>
 
 <%#= link_to "BROWSE", browse_path %>
 
-<% if policy(Reminder).create? %>
-<%= link_to "Create a new reminder", new_reminder_path %>
-<% end %>
 
+<%# link_to "Create a new reminder", new_reminder_path %>
+
+<div class="btn btn-black open-modal">Create new Reminder</div>
+
+<div class="btn btn-small btn-outline-black">Test</div>
+
+<!-- Start Modal create reminder -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form>
+      <h3>Create new Reminder</h3>
+
+      <label for="title">Title</label>
+      <input type="text" name="Title" placeholder="Title" class="input-field">
+
+      <label for="date">Description</label>
+      <input type="text" name="Description" placeholder="Description" class="input-field">
+
+      <div class="date-alert-flex">
+        <div>
+          <label for="date">When</label>
+          <input type="date" name="Date" value="Date" class="input-field" class="datetime-input-box-wrapper">
+        </div>
+        <div>
+          <label for="alert">Alert</label>
+          <input type="time" name="usr_time" class="input-field">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Modal create reminder -->
+
+
+<!-- Shows all Reminders -->
 <% @reminders.each do |r| %>
-  <p><%= r.name %>
+<p><%= r.name %>
   <%= r.date %>
   <%= r.description %>
-    <% if policy(Reminder).edit? %>
+  <% if policy(Reminder).edit? %>
   <%= link_to "Edit", edit_reminder_path(r) %>
   <% end %>
-    <% if policy(Reminder).destroy? %>
+  <% if policy(Reminder).destroy? %>
   <%= link_to "Delete", reminder_path(r), method: :delete %>
   <% end %></p>
-<% end %>
-
-
-<h3><%= @environment.name %></h3>
-
-<div class="content-container">
-  <div class="card-container">
-
-<% @environment_plants.each do |ep| %>
-<div class="card">
-  <%= link_to environment_plant_path(ep) do %>
-  <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
-  <div class="card-body">
-    <h5 class="card-category"><%= ep.plant.category %></h5>
-    <% if ep.nickname.nil? %>
-    <h3 class="card-title"><%= ep.plant.name %></h3>
-    <% else %>
-    <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
-    <% end %>
-    <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
-    <a href="#" class="card-care-tag">Go somewhere</a>
-     </div>
   <% end %>
-</div>
-<% end %>
 
-</div>
-</div>
+
+  <h3><%= @environment.name %></h3>
+
+  <div class="content-container">
+    <div class="card-container">
+
+      <% @environment_plants.each do |ep| %>
+      <div class="card">
+        <%= link_to environment_plant_path(ep) do %>
+        <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
+        <div class="card-body">
+          <h5 class="card-category"><%= ep.plant.category %></h5>
+          <% if ep.nickname.nil? %>
+          <h3 class="card-title"><%= ep.plant.name %></h3>
+          <% else %>
+          <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
+          <% end %>
+          <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
+          <a href="#" class="card-care-tag">Go somewhere</a>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+  <script>
+// Get the modal
+
+// Get the button that opens the modal
+const btn = document.querySelector('.open-modal');
+const modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.addEventListener("click", openModal());
+
+function openModal() {
+  modal.classList.add("modal-active");
+}
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.classList.remove("modal-active");
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.classList.remove("modal-active");
+  }
+}
+</script>
+
