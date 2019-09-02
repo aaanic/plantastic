@@ -44,9 +44,34 @@ puts "your #{Plant.count} plants are fully grown"
 
 puts "Grabbing a pen and paper"
 articles_attributes = [
-  {title: "Top tips to care for your plant", text: "General guidelines
+  {title: "Top tips to care for your plant", text: "### General guidelines
 Your soil is like a sponge. If your soil is moist to begin with, hold off on watering for now. If water pours out through the drainage holes immediately, your soil is actually bone dry and the soil is repelling water, rather than soaking it in. Avoid pouring water onto bone dry soil. Water will only move through and around the edges of your planter and will not be absorbed by the roots. Your plant should absorb water slowly through its roots so, before you water again, check how dry the soil is. Use your fingers and feel if the soil is wet at least 2 inches below the surface. If so, you can add water.
+### Size matters
+Size will determine how much water your plant needs. In smaller pots with less soil, the soil will dry out faster than in larger pots with lots of soil. If you have two of the same plant and one is larger than other, one will need water more often than the other. Tip: For large plants, pour water and let it soak in. Repeat until soil is saturated. Let it dry until watering again.
+### Tailor to your plant's needs
+Think of your plants’ natural environment: is it rainy and tropical or hot and dry? Desert-natives like cacti and succulents like to stay dry and will benefit from less water. When you water your cacti, succulents and euphorbs, feel free to give them a soak, but make sure they dry out completely — wait a few weeks (even months) before watering again. Humidity-loving ferns need a good watering once or twice a week.
+### Mind the Seasons
+During the summer when the sun is more intense, smaller succulents might need to be watered more regularly, about once every two weeks or so, compared to once a month in off seasons. Ferns and tropical plants should be watered once a week. Make sure the humidity levels stay high during hotter months..
+### Overwatering
+We’re inclined to ‘stay hydrated’ but plants can drown if they are flooded with too much water. If soil is left too wet for too long, it can cause root rot. That’s what we call overwatering. Letting your soil dry out before watering is key for plants to receive the the perfect balance of water and oxygen.
+### Water temperature
+Most houseplants prefer warm or tepid water over cold water. Warm water absorbs into soil best. Try not to splash water onto your plant’s leaves (unless it’s an orchid, air plant, or a fern, that will appreciate the added humidity). Most tropical plants have waxy leaves because the rainfall in their natural environment (i.e., the rainforest) can be excessive. Waxy leaves helps water slide off and avoids risk of fungal infections. We wish you an enjoyable watering experience for you and your plants.
 ", remote_image_url: "https://i.imgur.com/KFfRXaU.jpg"}, {title: "Help! Why are my plant's leaves turning yellow?", text: "The truth is, yellow leaves mean different things depending on (1) the plant they’re on and (2) what other symptoms the plant is showing. Overwatering, underwatering, mineral deficiency, temperature stress, and so on can all be causes. Below, we’ve broken it down to some simple symptomatic math with a solution to get rid of yellowing leaves.
+### Yellow Leaves + Curling Inward + Drooping or Crisping =
+Usually accompanied by dry soil. Your plant is under watered. You’ll likely see older, lower leaves dropping as well.
+The solution = water your plant.
+### Yellow Leaves + Fading to Green + or Bright Yellow =
+Usually accompanied by wet soil, or even fungus gnats if the problem has persisted for a while. Bases of stems may be blackened. This altogether means that your plant is overwatered. Usually lower leaves drop first, although the whole plant may be affected.
+The solution = repot and water less, or let it dry out and water less.
+### Irregular Yellowing + Sometimes Leaf Deformities =
+This is usually caused either by a pest or a mineral deficiency. If no pests are seen, then this is likely caused by a mineral deficiency, usually calcium or boron.
+The solution = choose a fertilizer that contains both calcium and boron and fertilize once a month.
+### Whole Plant Yellowing + May or May Not Drop Leaves =
+Likely a temperature thing. It’s either too cold or too hot. This will usually be a more pale yellow or whitish yellow. Temperature will flux around the plant too much or will be obvious, like a radiator or a draft. It could also be a fertilizer issue.
+The solution = if no obvious temperature causes are present and the soil seems normal, try fertilizing.
+### Whole Plant Semi-Yellowing + Not Dropping Leaves =
+A “general malaise” of a plant turning chartreuse means that it’s either pot-bound—the roots have no room to expand—or your plant is in the early stages of a fertilizer deficiency.
+The solution = Repot to a bigger pot or try fertilizing.
 ", remote_image_url: "https://i.imgur.com/I7ayCAJ.jpg"}
 ]
 
