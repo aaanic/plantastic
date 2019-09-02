@@ -4,12 +4,6 @@ class Reminder < ApplicationRecord
 
   after_create :schedule_reminder
 
-  # def self.send_in_the_future(id, date)
-  #   puts "///////////////////"
-  #   puts "Rescheduling the job for later..."
-  #   ReminderMailer.set(wait_until: date).perform_later(id)
-  # end
-
   private
 
   def getDayInTime(weekday)
@@ -19,14 +13,14 @@ class Reminder < ApplicationRecord
       preWeekday = DateTime.parse(DateTime.parse(weekday).strftime("%Y-%m-%dT#{self.hours}:00:00%z"))
     end
 
-    (preWeekay < DateTime.parse(DateTime.now.strftime("%Y-%m-%dT00:00:00%z"))) ? (DateTime.parse(weekday) + 7) : DateTime.parse(weekday)
+    (preWeekday < DateTime.parse(DateTime.now.strftime("%Y-%m-%dT00:00:00%z"))) ? (DateTime.parse(weekday) + 7) : DateTime.parse(weekday)
   end
 
 
   def schedule_reminder
     unless self.frequency == 'NONE'
       actualDate = getDayInTime(self.weekday)
-      waitDate = DateTime.parse(actualDate.strftime("%Y-%m-%dT16:00:00%z"))
+      waitDate = DateTime.parse(actualDate.strftime("%Y-%m-%dT00:00:00%z"))
 
       SendRemindersJob.set(wait_until: waitDate).perform_later(self.id)
 
