@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_30_115714) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,13 +65,14 @@ ActiveRecord::Schema.define(version: 2019_08_30_115714) do
 
   create_table "reminders", force: :cascade do |t|
     t.string "name"
-    t.datetime "date"
     t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "environment_id"
     t.string "frequency"
+    t.string "weekday"
+    t.integer "hours"
     t.index ["environment_id"], name: "index_reminders_on_environment_id"
     t.index ["user_id"], name: "index_reminders_on_user_id"
   end
