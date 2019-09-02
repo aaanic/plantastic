@@ -1,6 +1,9 @@
 <%= simple_form_for [@reminder] do |f| %>
   <div class="form-group">
-    <%= f.input :date, class: "form-control" %>
+    <%= f.input :weekday, collection: WEEKDAYS, prompt: "CHOOSE WEEKDAY", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :hours, collection: HOURS, prompt: "WHAT TIME", class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.input :name, class: "form-control" %>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :reminders
 
+  resources :articles
+
   devise_for :users
 
   require "sidekiq/web"

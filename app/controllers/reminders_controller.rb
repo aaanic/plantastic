@@ -51,6 +51,6 @@ class RemindersController < ApplicationController
   end
 
   def reminder_params
-    @reminder = params.require(:reminder).permit(:date, :name, :description, :frequency)
+    @reminder = params.require(:reminder).permit(:weekday, :hours, :name, :description, :frequency)
   end
 end
