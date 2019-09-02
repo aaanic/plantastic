@@ -63,10 +63,12 @@
 
 
 <div class= 'related-content'>
+  <div class="related-text">
   <h2>Plants you might like</h2>
   <%= link_to plants_path do %>
     <h4 class ='back-link'>Browse all plants</h4>
   <% end %>
+</div>
   <div class="card-container">
 <% @plant.related.sample(3).each do |plant| %>
 <div class="card">
