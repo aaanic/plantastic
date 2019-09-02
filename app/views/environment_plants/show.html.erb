@@ -1,5 +1,7 @@
 <div class="green-background"></div>
 
+<div class="invisible"></div>
+
 <div class="detail-content-container">
   <div class="header">
     <h5 class="category-tag"><%= @environment_plant.plant.latin_name %>
@@ -59,3 +61,27 @@
       </div>
     </div>
   </div>
+
+  <div class= 'related-content'>
+    <div class="related-text">
+  <h2>Your other plants</h2>
+  <%= link_to dashboard_path do %>
+    <h4 class ='back-link'>Go to dashboard</h4>
+  <% end %>
+  </div>
+  <div class="card-container">
+<% @environment_plant.plant_friends.sample(3).each do |eplant| %>
+<div class="card">
+    <%= link_to environment_plant_path(eplant) do %>
+    <img class="card-img-top" src="<%= eplant.plant.remote_image_url %>">
+    <div class="card-body">
+      <h5 class="card-category"><%= eplant.plant.category %></h5>
+      <h3 class="card-title"><%= eplant.plant.name %></h3>
+      <h4 class="card-subtitle"><%= eplant.plant.latin_name %></h4>
+      <a href="#" class="card-care-tag">Discover</a>
+       </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+</div>

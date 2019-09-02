@@ -3,4 +3,10 @@ class EnvironmentPlant < ApplicationRecord
   belongs_to :environment
 
   validates :nickname, presence: true, allow_nil: true
+
+  def plant_friends
+    environment = self.environment_id
+    all_plants_in_environement = EnvironmentPlant.where("environment_id = '#{environment}'")
+    all_plants_in_environement.reject { |x| x == self }
+  end
 end
