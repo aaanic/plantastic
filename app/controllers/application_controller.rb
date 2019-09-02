@@ -1,6 +1,11 @@
+include Pundit
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
   before_action :authenticate_user!
+  before_action :store_current_location, unless: :devise_controller?
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
   include MarkdownHelper
 
@@ -16,8 +21,19 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :environment_id])
+  end
 end
+
+
+

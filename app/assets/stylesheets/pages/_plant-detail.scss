@@ -43,6 +43,10 @@
     align-self: start;
   }
 
+  .category-tag {
+    display: none;
+  }
+
   .detail-content {
     display: grid;
     grid-template-rows: 25vh auto 2fr 1fr;
