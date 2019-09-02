@@ -11,6 +11,9 @@
   display: inline-block;
   outline: 0;
   text-decoration: none;
+  &:hover{
+    transition-duration: 0.3s;
+  }
 }
 
 .btn-small {
@@ -28,6 +31,7 @@
   border-radius: 50%;
   width: 2em;
   height: 2em;
+  text-align: center;
 }
 .btn-black {
   background: $dark-gray;
