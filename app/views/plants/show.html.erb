@@ -6,84 +6,106 @@
   <div class="header">
     <h5 class="category-tag"><%= @plant.latin_name %>
       <%= @plant.category %></h5>
-  <img class="header-img" src="<%= @plant.remote_image_url %>">
-  <% if current_user.present? %>
-    <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="btn-round btn-outline-black overlap-right white-background">+</button>
+      <img class="header-img" src="<%= @plant.remote_image_url %>">
+      <% if current_user.present? %>
+      <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
+      <button class="btn-round btn-outline-black overlap-right white-background">+</button>
 
-        <% end %>
-  <% else %>
+      <% end %>
+      <% else %>
       <%= link_to new_user_session_path do %>
       <button class="btn-round btn-black overlap-right">+</button>
 
-    <% end %>
-  <% end %>
+      <% end %>
+      <% end %>
 
-  </div>
-
-<div class="detail-content">
-<div class="titles">
-<h1 class="title"><%= @plant.name %></h1>
-<h2 class="subtitle"><%= @plant.latin_name %></h2>
-</div>
-<div class="add-option">
-  <% if current_user.present? %>
-    <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
-          <button class="btn btn-outline-black white-background">Add plant</button>
-        <% end %>
-  <% else %>
-      <%= link_to new_user_session_path do %>
-      <button class="btn btn-outline-black white-background">Add plant</button>
-    <% end %>
-  <% end %>
-  </div>
-
-
-<p class="description-text"><%= @plant.description %></p>
-
-<div class="icons">
-      <div>
-        <svg class="svg-icon" viewBox="0 0 20 20">
-              <path fill="none" d="M5.114,5.726c0.169,0.168,0.442,0.168,0.611,0c0.168-0.169,0.168-0.442,0-0.61L3.893,3.282c-0.168-0.168-0.442-0.168-0.61,0c-0.169,0.169-0.169,0.442,0,0.611L5.114,5.726z M3.955,10c0-0.239-0.193-0.432-0.432-0.432H0.932C0.693,9.568,0.5,9.761,0.5,10s0.193,0.432,0.432,0.432h2.591C3.761,10.432,3.955,10.239,3.955,10 M10,3.955c0.238,0,0.432-0.193,0.432-0.432v-2.59C10.432,0.693,10.238,0.5,10,0.5S9.568,0.693,9.568,0.932v2.59C9.568,3.762,9.762,3.955,10,3.955 M14.886,5.726l1.832-1.833c0.169-0.168,0.169-0.442,0-0.611c-0.169-0.168-0.442-0.168-0.61,0l-1.833,1.833c-0.169,0.168-0.169,0.441,0,0.61C14.443,5.894,14.717,5.894,14.886,5.726 M5.114,14.274l-1.832,1.833c-0.169,0.168-0.169,0.441,0,0.61c0.168,0.169,0.442,0.169,0.61,0l1.833-1.832c0.168-0.169,0.168-0.442,0-0.611C5.557,14.106,5.283,14.106,5.114,14.274 M19.068,9.568h-2.591c-0.238,0-0.433,0.193-0.433,0.432s0.194,0.432,0.433,0.432h2.591c0.238,0,0.432-0.193,0.432-0.432S19.307,9.568,19.068,9.568 M14.886,14.274c-0.169-0.168-0.442-0.168-0.611,0c-0.169,0.169-0.169,0.442,0,0.611l1.833,1.832c0.168,0.169,0.441,0.169,0.61,0s0.169-0.442,0-0.61L14.886,14.274z M10,4.818c-2.861,0-5.182,2.32-5.182,5.182c0,2.862,2.321,5.182,5.182,5.182s5.182-2.319,5.182-5.182C15.182,7.139,12.861,4.818,10,4.818M10,14.318c-2.385,0-4.318-1.934-4.318-4.318c0-2.385,1.933-4.318,4.318-4.318c2.386,0,4.318,1.933,4.318,4.318C14.318,12.385,12.386,14.318,10,14.318 M10,16.045c-0.238,0-0.432,0.193-0.432,0.433v2.591c0,0.238,0.194,0.432,0.432,0.432s0.432-0.193,0.432-0.432v-2.591C10.432,16.238,10.238,16.045,10,16.045"></path>
-            </svg>
-      <i class="icon fas fa-sun"></i>
-      <p class="icon-text"> <%= @plant.light_preference %></p>
-      </div>
-      <div>
-      <i class="icon fas fa-tint"></i>
-      <p class="icon-text">  <%= @plant.care_level %></p>
-      </div>
-      <div>
-      <i class="icon fas fa-band-aid"></i>
-      <p class="icon-text"><%= @plant.max_height %></p>
-      </div>
     </div>
-</div>
-</div>
+
+    <div class="detail-content">
+      <div class="titles">
+        <h1 class="title"><%= @plant.name %></h1>
+        <h2 class="subtitle"><%= @plant.latin_name %></h2>
+      </div>
+      <div class="add-option">
+        <% if current_user.present? %>
+        <%= link_to environment_plants_path(environment_plant: {environment_id: current_user.environment.id, plant_id: @plant.id}), method: :post do %>
+        <button class="btn btn-outline-black white-background">Add plant</button>
+        <% end %>
+        <% else %>
+        <%= link_to new_user_session_path do %>
+        <button class="btn btn-outline-black white-background">Add plant</button>
+        <% end %>
+        <% end %>
+      </div>
+
+      <div class="icons">
+        <div>
+          <svg class="svg-icon" viewBox="0 0 20 20">
+            <path fill="none" d="M5.114,5.726c0.169,0.168,0.442,0.168,0.611,0c0.168-0.169,0.168-0.442,0-0.61L3.893,3.282c-0.168-0.168-0.442-0.168-0.61,0c-0.169,0.169-0.169,0.442,0,0.611L5.114,5.726z M3.955,10c0-0.239-0.193-0.432-0.432-0.432H0.932C0.693,9.568,0.5,9.761,0.5,10s0.193,0.432,0.432,0.432h2.591C3.761,10.432,3.955,10.239,3.955,10 M10,3.955c0.238,0,0.432-0.193,0.432-0.432v-2.59C10.432,0.693,10.238,0.5,10,0.5S9.568,0.693,9.568,0.932v2.59C9.568,3.762,9.762,3.955,10,3.955 M14.886,5.726l1.832-1.833c0.169-0.168,0.169-0.442,0-0.611c-0.169-0.168-0.442-0.168-0.61,0l-1.833,1.833c-0.169,0.168-0.169,0.441,0,0.61C14.443,5.894,14.717,5.894,14.886,5.726 M5.114,14.274l-1.832,1.833c-0.169,0.168-0.169,0.441,0,0.61c0.168,0.169,0.442,0.169,0.61,0l1.833-1.832c0.168-0.169,0.168-0.442,0-0.611C5.557,14.106,5.283,14.106,5.114,14.274 M19.068,9.568h-2.591c-0.238,0-0.433,0.193-0.433,0.432s0.194,0.432,0.433,0.432h2.591c0.238,0,0.432-0.193,0.432-0.432S19.307,9.568,19.068,9.568 M14.886,14.274c-0.169-0.168-0.442-0.168-0.611,0c-0.169,0.169-0.169,0.442,0,0.611l1.833,1.832c0.168,0.169,0.441,0.169,0.61,0s0.169-0.442,0-0.61L14.886,14.274z M10,4.818c-2.861,0-5.182,2.32-5.182,5.182c0,2.862,2.321,5.182,5.182,5.182s5.182-2.319,5.182-5.182C15.182,7.139,12.861,4.818,10,4.818M10,14.318c-2.385,0-4.318-1.934-4.318-4.318c0-2.385,1.933-4.318,4.318-4.318c2.386,0,4.318,1.933,4.318,4.318C14.318,12.385,12.386,14.318,10,14.318 M10,16.045c-0.238,0-0.432,0.193-0.432,0.433v2.591c0,0.238,0.194,0.432,0.432,0.432s0.432-0.193,0.432-0.432v-2.591C10.432,16.238,10.238,16.045,10,16.045"></path>
+          </svg>
+          <p> <%= @plant.light_preference %></p>
+        </div>
+        <div>
+          <svg class="svg-icon" viewBox="0 0 20 20">
+            <path fill="none" d="M4.68,13.716v-0.169H4.554C4.592,13.605,4.639,13.658,4.68,13.716z M11.931,6.465
+            c-0.307-0.087-0.623,0.106-0.706,0.432l-1.389,5.484c-0.901,0.084-1.609,0.833-1.609,1.757c0,0.979,0.793,1.773,1.773,1.773
+            c0.979,0,1.773-0.794,1.773-1.773c0-0.624-0.324-1.171-0.812-1.486l1.377-5.439C12.422,6.887,12.239,6.552,11.931,6.465z
+            M10.591,14.729H9.408v-1.182h1.183V14.729z M15.32,13.716c0.04-0.058,0.087-0.11,0.126-0.169H15.32V13.716z M10,3.497
+            c-3.592,0-6.503,2.911-6.503,6.503H4.68c0-2.938,2.382-5.32,5.32-5.32s5.32,2.382,5.32,5.32h1.182
+            C16.502,6.408,13.591,3.497,10,3.497z M10,0.542c-5.224,0-9.458,4.234-9.458,9.458c0,5.224,4.234,9.458,9.458,9.458
+            c5.224,0,9.458-4.234,9.458-9.458C19.458,4.776,15.224,0.542,10,0.542z M15.32,16.335v0.167h-0.212
+            c-1.407,1.107-3.179,1.773-5.108,1.773c-1.93,0-3.701-0.666-5.108-1.773H4.68v-0.167C2.874,14.816,1.724,12.543,1.724,10
+            c0-4.571,3.706-8.276,8.276-8.276c4.57,0,8.275,3.706,8.275,8.276C18.275,12.543,17.126,14.816,15.32,16.335z"></path>
+          </svg>
+          <p><%= @plant.care_level %></p>
+
+        </div>
 
 
-<div class= 'related-content'>
-  <div class="related-text">
-  <h2>Plants you might like</h2>
-  <%= link_to plants_path do %>
-    <h4 class ='back-link'>Browse all plants</h4>
-  <% end %>
-</div>
-  <div class="card-container">
-<% @plant.related.sample(3).each do |plant| %>
-<div class="card">
-    <%= link_to plant_path(plant) do %>
-    <img class="card-img-top" src="<%= plant.remote_image_url %>">
-    <div class="card-body">
-      <h5 class="card-category"><%= plant.category %></h5>
-      <h3 class="card-title"><%= plant.name %></h3>
-      <h4 class="card-subtitle"><%= plant.latin_name %></h4>
-      <a href="#" class="card-care-tag">Discover</a>
-       </div>
-    <% end %>
+
+        <div>
+          <i class="icon fas fa-tint"></i>
+
+        </div>
+        <div>
+          <i class="icon fas fa-band-aid"></i>
+          <p class="icon-text"><%= @plant.max_height %></p>
+        </div>
+      </div>
+
+
+      <p class="description-text"><%= @plant.description %></p>
+
+
+    </div>
   </div>
-  <% end %>
-</div>
-</div>
 
+
+  <div class= 'related-content'>
+    <div class="related-text">
+      <h2>Plants you might like</h2>
+      <%= link_to plants_path do %>
+      <h4 class ='back-link'>Browse all plants</h4>
+      <% end %>
+    </div>
+    <div class="card-container">
+      <% @plant.related.sample(3).each do |plant| %>
+      <div class="card">
+        <%= link_to plant_path(plant) do %>
+        <img class="card-img-top" src="<%= plant.remote_image_url %>">
+        <div class="card-body">
+          <div class="card-body-top">
+          <h5 class="card-category"><%= plant.category %></h5>
+                    <p class="plant-details"><%= plant.care_level %> ○ <%= plant.light_preference   %></p>
+        </div>
+        <div class="card-titles">
+          <h3 class="card-title"><%= plant.name %></h3>
+          <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+        </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 

@@ -1,38 +1,42 @@
 
-  <h1>All plants</h1>
+<h1>All plants</h1>
 
 <div class="search-container">
   <svg class="svg-icon" id="search-icon" viewBox="0 0 20 20">
-              <path fill="none" d="M18.109,17.776l-3.082-3.081c-0.059-0.059-0.135-0.077-0.211-0.087c1.373-1.38,2.221-3.28,2.221-5.379c0-4.212-3.414-7.626-7.625-7.626c-4.212,0-7.626,3.414-7.626,7.626s3.414,7.627,7.626,7.627c1.918,0,3.665-0.713,5.004-1.882c0.006,0.085,0.033,0.17,0.098,0.234l3.082,3.081c0.143,0.142,0.371,0.142,0.514,0C18.25,18.148,18.25,17.918,18.109,17.776zM9.412,16.13c-3.811,0-6.9-3.089-6.9-6.9c0-3.81,3.089-6.899,6.9-6.899c3.811,0,6.901,3.09,6.901,6.899C16.312,13.041,13.223,16.13,9.412,16.13z"></path>
-            </svg>
+    <path fill="none" d="M18.109,17.776l-3.082-3.081c-0.059-0.059-0.135-0.077-0.211-0.087c1.373-1.38,2.221-3.28,2.221-5.379c0-4.212-3.414-7.626-7.625-7.626c-4.212,0-7.626,3.414-7.626,7.626s3.414,7.627,7.626,7.627c1.918,0,3.665-0.713,5.004-1.882c0.006,0.085,0.033,0.17,0.098,0.234l3.082,3.081c0.143,0.142,0.371,0.142,0.514,0C18.25,18.148,18.25,17.918,18.109,17.776zM9.412,16.13c-3.811,0-6.9-3.089-6.9-6.9c0-3.81,3.089-6.899,6.9-6.899c3.811,0,6.901,3.09,6.901,6.899C16.312,13.041,13.223,16.13,9.412,16.13z"></path>
+  </svg>
 
-<%= form_tag plants_path, method: :get, class: "" do %>
-    <%= text_field_tag :query,
-        params[:query],
-        class: "search-input",
-        placeholder: "Search Plants"
-      %>
+  <%= form_tag plants_path, method: :get, class: "" do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "search-input",
+    placeholder: "Search Plants"
+    %>
 
-<% end %>
-</div>
-</div>
-
-  <div class="content-container">
-    <div class="card-container">
-
-  <% @plants.each do |plant| %>
-  <div class="card">
-    <%= link_to plant_path(plant) do %>
-    <img class="card-img-top" src="<%= plant.remote_image_url %>">
-    <div class="card-body">
-      <h5 class="card-category"><%= plant.category %></h5>
-      <h3 class="card-title"><%= plant.name %></h3>
-      <h4 class="card-subtitle"><%= plant.latin_name %></h4>
-      <a href="#" class="card-care-tag">Discover</a>
-       </div>
     <% end %>
   </div>
-  <% end %>
+</div>
+
+<div class="content-container">
+  <div class="card-container">
+
+    <% @plants.each do |plant| %>
+    <div class="card">
+      <%= link_to plant_path(plant) do %>
+      <img class="card-img-top" src="<%= plant.remote_image_url %>">
+      <div class="card-body">
+        <div class="card-body-top">
+          <h5 class="card-category"><%= plant.category %></h5>
+          <p class="plant-details"><%= plant.care_level %> ○ <%= plant.light_preference   %></p>
+        </div>
+        <div class="card-titles">
+        <h3 class="card-title"><%= plant.name %></h3>
+        <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+      </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
 
   </div>
-  </div>
+</div>
