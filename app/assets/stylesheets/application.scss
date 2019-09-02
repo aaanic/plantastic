@@ -24,9 +24,14 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";*/
 
+@import "config/hamburger-settings";
+@import "hamburgers";
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
 
 body {
   margin: 0;

@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   resources :reminders
 
   devise_for :users
+
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| !u.nil? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

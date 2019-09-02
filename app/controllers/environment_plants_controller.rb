@@ -14,12 +14,7 @@ class EnvironmentPlantsController < ApplicationController
     environment_plant = EnvironmentPlant.new(environment_plant_params)
     plant = Plant.find(environment_plant_params[:plant_id])
     environment = Environment.find(environment_plant_params[:environment_id])
-    if environment.nil?
-      new_environment = Environment.create(name: current_user.name + "'s jungle")
-      environment_plant.environment = new_environment
-    else
-      environment_plant.environment = environment
-    end
+    environment_plant.environment = environment
     environment_plant.plant = plant
     authorize environment_plant
     environment_plant.save
