@@ -6,7 +6,7 @@
 <div class="titles">
 <h1 class="title"><%= @article.title %></h1>
 </div>
-<p><%= @article.text %></p>
+<p><%= markdown @article.text %></p>
 
 <% if current_user && current_user.admin %>
   <p><%= link_to 'Edit', edit_article_path %> |
@@ -15,3 +15,4 @@
 <% else %>
 <p><%= link_to 'Back', articles_path %></p>
 <% end  %>
+

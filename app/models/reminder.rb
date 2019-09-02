@@ -6,25 +6,28 @@ class Reminder < ApplicationRecord
 
   private
 
-  def getDayInTime(weekday)
+  def getDateTime
     if [1,2,3,4,5,6,7,8,9].include?(self.hours)
-      preWeekday = DateTime.parse(DateTime.parse(weekday).strftime("%Y-%m-%dT0#{self.hours}:00:00%z"))
+      DateTime.parse(DateTime.parse(self.weekday).strftime("%Y-%m-%dT0#{self.hours}:00:00+02:00"))
     else
-      preWeekday = DateTime.parse(DateTime.parse(weekday).strftime("%Y-%m-%dT#{self.hours}:00:00%z"))
+      DateTime.parse(DateTime.parse(self.weekday).strftime("%Y-%m-%dT#{self.hours}:00:00+02:00"))
     end
-
-    (preWeekday < DateTime.parse(DateTime.now.strftime("%Y-%m-%dT00:00:00%z"))) ? (DateTime.parse(weekday) + 7) : DateTime.parse(weekday)
   end
 
 
-  def schedule_reminder
-    unless self.frequency == 'NONE'
-      actualDate = getDayInTime(self.weekday)
-      waitDate = DateTime.parse(actualDate.strftime("%Y-%m-%dT00:00:00%z"))
+  def getDayInTime
 
-      SendRemindersJob.set(wait_until: waitDate).perform_later(self.id)
+    preWeekday = getDateTime
 
-      if self.frequency == 'DAILY'
+    if preWeekday < DateTime.parse(DateTime.now.strftime("%Y-%m-%dT00:00:00+02:00"))
+      preWeekday + 7
+    else
+      preWeekday
+    end
+  end
+
+  def repeatMailer(waitDate)
+    if self.frequency == 'DAILY'
         # new_date = DateTime.parse(waitDate.strftime("%Y-%m-%dT16:00:00%z"))
         new_date = waitDate + 1
         SendRemindersJob.set(wait_until: new_date).perform_later(self.id)
@@ -41,7 +44,17 @@ class Reminder < ApplicationRecord
         new_date = waitDate + 30
         SendRemindersJob.set(wait_until: new_date).perform_later(self.id)
       end
+  end
 
+
+  def schedule_reminder
+    unless self.frequency == 'NONE'
+      actualDate = getDayInTime
+
+      SendRemindersJob.set(wait_until: actualDate).perform_later(self.id)
+
+      waitDate = getDateTime
+      repeatMailer(waitDate)
     end
   end
 end
