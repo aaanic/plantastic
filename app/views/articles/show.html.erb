@@ -1,0 +1,17 @@
+<div class="header">
+  <h5 class="category-tag"><%= @article.title %></h5>
+  <img class="header-img" src="<%= @article.remote_image_url %>">
+</div>
+
+<div class="titles">
+<h1 class="title"><%= @article.title %></h1>
+</div>
+<p><%= @article.text %></p>
+
+<% if current_user && current_user.admin %>
+  <p><%= link_to 'Edit', edit_article_path %> |
+  <%= link_to 'Remove', article_path, method: :delete %> |
+  <%= link_to 'Back', articles_path %></p>
+<% else %>
+<p><%= link_to 'Back', articles_path %></p>
+<% end  %>
