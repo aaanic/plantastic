@@ -1,54 +1,125 @@
-<%# if @user_plants %>
-  <%# @user_plants.each do |user_plant| %>
-    <%#= user_plant.nickname %>
-    <%#= user_plant.plant.name %>
-    <%#= link_to "Edit Plant", edit_user_plant_path(user_plant) %>
-    <%#= link_to "Delete Plant", method: :delete %>
-  <%# end %>
-<%# end %>
 <h1><%= current_user.first_name %>'s Dashboard</h1>
 
-<%#= link_to "BROWSE", browse_path %>
+<%# link_to "Create a new reminder", new_reminder_path %>
 
-<% if policy(Reminder).create? %>
-<%= link_to "Create a new reminder", new_reminder_path %>
-<% end %>
+<div class="btn btn-black open-modal">Create new Reminder</div>
 
-<% @reminders.each do |r| %>
-  <p><%= r.name %>
-  <%= r.weekday %>
-  <%= r.description %>
+<!-- Start Modal create reminder -->
+<div id="myModal" class="modal">
+
+  <div class="reminder-container">
+
+    <div class="reminder-header-green">
+      <h3>New Reminder</h3>
+      <span class="close">&times;</span>
+    </div>
+
+    <%= form_for(@reminder) do |f| %>
+    <div class="reminder-content">
+
+      <%= f.label "Title" %>
+      <%= f.text_field :name, placeholder: 'Remind me to…', class: "reminder-input-field-outline" %>
+
+      <div>
+        <div class="datetime">
+          <div class="field">
+            <%= f.label "Weekday" %>
+            <div class="reminder-input-field-outline">
+              <%= f.select(:weekday, collection: WEEKDAYS, placeholder: "Choose Weekday") %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label "Hour" %>
+            <div class="reminder-input-field-outline">
+              <%= f.select(:hours, collection: HOURS) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= f.label "Set your Reminder" %>
+      <div id="alert" class="reminder-input-field-outline">
+        <%= f.select(:frequency, collection: FREQUENCIES) %>
+      </div>
+
+      <%= f.label "Notes" %>
+      <%= f.text_area :description, as: :text, placeholder: "Details…", class: "reminder-input-field-outline" %>
+      <div class="button-center">
+        <%= f.button :submit, class: "btn btn-black" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+<!-- End Modal create reminder -->
+
+
+<%# link_to "Create a new reminder", new_reminder_path %>
+
+
+<% @reminders.order("id ASC").each do |r| %>
+    <%= r.name %>
+    <%= r.weekday %>
+    <%= r.description %>
+    <%= r.hours %>
+    <%= r.weekday %>
     <% if policy(Reminder).edit? %>
-  <%= link_to "Edit", edit_reminder_path(r) %>
-  <% end %>
-    <% if policy(Reminder).destroy? %>
-  <%= link_to "Delete", reminder_path(r), method: :delete %>
-  <% end %></p>
-<% end %>
-
-
-<h3><%= @environment.name %></h3>
-
-<div class="content-container">
-  <div class="card-container">
-
-<% @environment_plants.each do |ep| %>
-<div class="card">
-  <%= link_to environment_plant_path(ep) do %>
-  <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
-  <div class="card-body">
-    <h5 class="card-category"><%= ep.plant.category %></h5>
-    <% if ep.nickname.nil? %>
-    <h3 class="card-title"><%= ep.plant.name %></h3>
-    <% else %>
-    <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
+      <%= link_to "Edit", edit_reminder_path(r) %>
     <% end %>
-    <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
-    <a href="#" class="card-care-tag">Go somewhere</a>
-     </div>
-  <% end %>
-</div>
+    <% if policy(Reminder).destroy? %>
+      <%= link_to "Delete", reminder_path(r), method: :delete %>
+    <% end %>
+  </p>
 <% end %>
 
-</div>
-</div>
+
+  <!-- REMINDER CARD -->
+
+<!--   <div class="card-reminder">
+
+    <div class="reminder-left">
+      <img src="notification.svg" alt="notification">
+      <h5>19:00</h5>
+    </div>
+
+    <div class="reminder-infos">
+      <div class="card-reminder-date-edit">
+        <h5>Reminder Date</h5>
+        <h4>Reminder Title</h4>
+        <p>Reminder Description, height matches according to number of lines</p>
+      </div>
+      <img src="edit.svg" alt="edit">
+    </div>
+
+  </div> -->
+
+
+  <h3><%= @environment.name %></h3>
+
+  <div class="content-container">
+    <div class="card-container">
+
+      <% @environment_plants.each do |ep| %>
+      <div class="card">
+        <%= link_to environment_plant_path(ep) do %>
+        <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
+        <div class="card-body">
+          <h5 class="card-category"><%= ep.plant.category %></h5>
+          <% if ep.nickname.nil? %>
+          <h3 class="card-title"><%= ep.plant.name %></h3>
+          <% else %>
+          <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
+          <% end %>
+          <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
+          <a href="#" class="card-care-tag">Go somewhere</a>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
