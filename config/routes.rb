@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#user_dashboard'
   get 'browse', to: 'pages#results_page'
+  get 'plantdoctor', to: 'pages#plantdoctor'
 
   resources :plants, only: [:index, :show]
 

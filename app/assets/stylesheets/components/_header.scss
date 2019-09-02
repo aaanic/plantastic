@@ -4,7 +4,19 @@
 
 .empty-header-container {
   height: 10vh;
-  padding: 8vh 0;
+  padding: 8vh 5vw;
+}
+
+.article-header {
+  height: 50vh;
+  color: $white;
+  text-align: center;
+  display: flex;
+  h1 {
+    width: 400px;
+    margin: auto;
+    align-self: center;
+  }
 }
 
 @media only screen and (max-device-width: 1200px) {

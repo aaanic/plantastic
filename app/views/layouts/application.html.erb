@@ -28,15 +28,15 @@
   <%= render "shared/navbar-mobile" %>
   <% end %>
   <script>
-    const hamburger = document.querySelector('.hamburger');
+    let hamburger = document.querySelector('.hamburger');
     function openNav() {
       hamburger.classList.add('is-active');
       document.getElementById("myNav").style.width = "100%";
     }
 
     document.querySelector('body').addEventListener('click', (event) => {
-      const isActive = !!document.querySelector('.is-active')
-      const { classList } = event.target
+      let isActive = !!document.querySelector('.is-active')
+      let { classList } = event.target
 
       if (event && (classList.contains('hamburger-inner')) || (event.target.classList.contains('hamburger-box')) || (event.target.classList.contains('hamburger'))) {
           if (isActive) {
