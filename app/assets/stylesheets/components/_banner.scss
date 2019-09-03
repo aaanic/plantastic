@@ -6,6 +6,20 @@
 
 }
 
+.green-banner {
+  background: rgb(224,211,207);
+  background: linear-gradient(164.26deg, rgba(122, 145, 116, 0.49) 0%, #7A9174 93.18%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  height: 100vh;
+  p {
+    background-color: transparent;
+  }
+}
+
 .bg-img-plants {
   background-image: url('https://source.unsplash.com/bBiuSdck8tU');
   height: 100%;

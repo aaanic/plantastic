@@ -15,4 +15,7 @@ class PagesController < ApplicationController
     @environment = current_user.environment
     @environment_plants = current_user.environment.environment_plants
   end
+
+  def plantdoctor
+  end
 end
