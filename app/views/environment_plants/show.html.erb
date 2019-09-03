@@ -69,6 +69,15 @@
     </div>
   </div>
 
+  <h2>Your plant</h2>
+  <%= simple_form_for(@environment_plant) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <!-- [...] -->
+<% end %>
+
+
     <div class= 'related-content'>
       <div class="related-text">
         <h2>Your other plants</h2>

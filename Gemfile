@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'hamburgers'
 # image upload
 gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

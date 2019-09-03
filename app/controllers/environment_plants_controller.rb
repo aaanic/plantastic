@@ -52,6 +52,6 @@ class EnvironmentPlantsController < ApplicationController
   end
 
   def environment_plant_params
-    params.require(:environment_plant).permit(:nickname, :environment_id, :plant_id)
+    params.require(:environment_plant).permit(:nickname, :environment_id, :plant_id ,:photo)
   end
 end
