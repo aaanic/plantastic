@@ -79,3 +79,11 @@
 .white-background {
   background-color: $white;
 }
+
+/* Button Reminder */
+
+.button-center {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
