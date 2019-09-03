@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#user_dashboard'
   get 'browse', to: 'pages#results_page'
 
+  post 'stop_reminders', to: 'reminders#stop_reminders'
+
   resources :plants, only: [:index, :show]
 
   resources :environment_plants
