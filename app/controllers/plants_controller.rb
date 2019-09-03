@@ -5,25 +5,29 @@ class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def index
-        @categories = []
+      @categories = []
     Plant.all.each do |p|
       unless @categories.include?(p.category)
         @categories << p.category
       end
     end
 
-    @max_heights = []
+    @categories = @categories.uniq
+
+      @max_heights = []
     Plant.all.each do |p|
       unless @max_heights.include?(p.max_height)
         @max_heights << p.max_height
       end
+      @max_heights.uniq!
     end
 
-    @light_preference = []
+      @light_preference = []
     Plant.all.each do |p|
       unless @light_preference.include?(p.light_preference)
         @light_preference << p.light_preference
       end
+      @light_preference.uniq!
     end
 
     user_input = params[:query]
@@ -35,11 +39,27 @@ class PlantsController < ApplicationController
     @plants = plants.sort_by { |p| p.name }
 
 
-    if params.include?(:categories) && params.include?(:max_heights)
+    if params.include?(:categories) && params.include?(:max_heights) && params.include?(:light_preference)
+      filter_cats = params[:categories]
+      filter_heights = params[:max_heights]
+      filter_light = params[:light_preference]
+
+      filter_inputs = filter_cats + filter_heights + filter_light
+    elsif params.include?(:categories) && params.include?(:max_heights)
       filter_cats = params[:categories]
       filter_heights = params[:max_heights]
 
       filter_inputs = filter_cats + filter_heights
+    elsif params.include?(:categories) && params.include?(:light_preference)
+      filter_cats = params[:categories]
+      filter_light = params[:light_preference]
+
+      filter_inputs = filter_cats + filter_light
+    elsif params.include?(:max_heights) && params.include?(:light_preference)
+      filter_heights = params[:max_heights]
+      filter_light = params[:light_preference]
+
+      filter_inputs = filter_heights + filter_light
     elsif params.include?(:categories)
       filter_cats = params[:categories]
 
@@ -102,7 +122,7 @@ class PlantsController < ApplicationController
       @plants = heights_params + light_params
       @plants.uniq!
 
-    elsif filter_inputs == filter_cats + filter_heights
+    elsif filter_inputs == filter_cats + filter_heights + filter_light
       @plants = cats_params + heights_params + light_params
       @plants.uniq!
 
