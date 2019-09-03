@@ -88,6 +88,16 @@
   </div>
 
 
+<% if !@user_plants.first.nil? %>
+  <h2><%= @plant.name %> in the Plantastic Community</h2>
+  <!-- <div class="gallery"> -->
+  <% @user_plants.each do |user_plant| %>
+  <%= cl_image_tag user_plant.photo, height: 300,   width: 400, crop: :fill  %>
+  <% end %>
+  <!-- </div> -->
+<% end %>
+
+
   <div class= 'related-content'>
     <div class="related-text">
       <h2>Plants you might like</h2>

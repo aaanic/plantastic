@@ -111,6 +111,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @user_plants = @plant.environment_plants
   end
 
   def new
