@@ -6,7 +6,9 @@
     <%#= link_to "Delete Plant", method: :delete %>
   <%# end %>
 <%# end %>
+<div class="empty-header"></div>
 <h1><%= current_user.first_name %>'s Dashboard</h1>
+<%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 
 <%#= link_to "BROWSE", browse_path %>
 
