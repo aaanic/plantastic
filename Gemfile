@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 
 #hamburger navigation icon
 gem 'hamburgers'
+# image upload
+gem 'cloudinary', '~> 1.9.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
