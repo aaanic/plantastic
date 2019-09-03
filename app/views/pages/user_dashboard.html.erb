@@ -13,11 +13,15 @@
 <%# link_to "Create a new reminder", new_reminder_path %>
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
-
+<%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
+  
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
 
+
+
   <div class="reminder-container">
+
 
     <div class="reminder-header-green">
       <h3>New Reminder</h3>

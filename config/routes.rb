@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get 'browse', to: 'pages#results_page'
   get 'plantdoctor', to: 'pages#plantdoctor'
 
+
+  post 'stop_reminders', to: 'reminders#stop_reminders'
+
+  resources :plants, only: [:index, :show]
+
   resources :plants
 
   resources :environment_plants

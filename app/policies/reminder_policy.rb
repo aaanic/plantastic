@@ -25,6 +25,10 @@ class ReminderPolicy < ApplicationPolicy
     user_exists?
   end
 
+  def stop_reminders?
+    true
+  end
+
   def destroy?
     user_exists?
   end
