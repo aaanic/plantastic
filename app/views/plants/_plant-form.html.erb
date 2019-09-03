@@ -1,0 +1,10 @@
+<%= simple_form_for(plant) do |f| %>
+<%= f.input :name %>
+<%= f.input :latin_name %>
+<%= f.input :description, as: :text %>
+<%= f.input :max_height %>
+<%= f.input :light_preference %>
+<%= f.input :care_level %>
+<%= f.input :remote_image_url %>
+<%= f.button :submit, class: "btn btn-black" %>
+<% end %>

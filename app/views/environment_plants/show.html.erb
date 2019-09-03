@@ -78,8 +78,8 @@
       </div>
       <div class="card-container">
         <% @environment_plant.plant_friends.sample(3).each do |eplant| %>
+        <%= link_to environment_plant_path(eplant) do %>
         <div class="card">
-          <%= link_to environment_plant_path(eplant) do %>
           <img class="card-img-top" src="<%= eplant.plant.remote_image_url %>">
           <div class="card-body">
             <div class="card-body-top">
@@ -94,7 +94,8 @@
           </div>
         </div>
         <% end %>
+        <% end %>
       </div>
-      <% end %>
+
     </div>
   </div>

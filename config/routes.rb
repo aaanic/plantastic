@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'browse', to: 'pages#results_page'
   get 'plantdoctor', to: 'pages#plantdoctor'
 
-  resources :plants, only: [:index, :show]
+  resources :plants
 
   resources :environment_plants
 
