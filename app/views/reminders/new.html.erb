@@ -1,24 +1,57 @@
-<div style="margin-top: 200px"></div>
 
+<!-- Replace @reminder with reminders_path when linking from USER DASHBOARD !!!-->
 
-<%= simple_form_for [@reminder] do |f| %>
-  <div class="form-group">
-    <%= f.input :weekday, collection: WEEKDAYS, prompt: "CHOOSE WEEKDAY", class: "form-control" %>
+<!-- <div id="myModal" class="modal"> -->
+  <div class="reminder-container">
+
+    <div class="reminder-header-green">
+      <h3>New Reminder</h3>
+      <span class="close">&times;</span>
+    </div>
+
+<%= form_for(@reminder) do |f| %>
+<div class="reminder-content">
+
+  <%= f.label "Title" %>
+  <%= f.text_field :name, placeholder: 'Remind me to…', class: "reminder-input-field-outline" %>
+
+  <div>
+    <div class="datetime">
+      <div class="field">
+        <%= f.label "Weekday" %>
+        <div class="reminder-input-field-outline">
+          <%= f.select(:weekday, collection: WEEKDAYS, placeholder: "Choose Weekday") %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label "Hour" %>
+        <div class="reminder-input-field-outline">
+          <%= f.select(:hours, collection: HOURS) %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.input :hours, collection: HOURS, prompt: "WHAT TIME", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.input :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.input :description, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.input :frequency, collection: FREQUENCIES, prompt: "How often do you want your reminders", class: "form-control" %>
+
+  <%= f.label "Notes" %>
+  <%= f.text_area :description, as: :text,  placeholder: "Details…", class: "reminder-input-field-outline" %>
+
+  <%= f.label "Set your Reminder" %>
+  <div class="field select-wrapper">
+    <div id="alert" class="reminder-input-field-outline">
+      <%= f.select(:frequency, collection: FREQUENCIES) %>
+    </div>
   </div>
   <br>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
 
-<%= link_to "Back", :back, {:class=>"btn btn-black"} %>
+  <%= f.button :submit, class: "btn btn-black" %>
+  <% end %>
+
+  <% link_to "Back", :back, {:class=>"btn btn-black"} %>
+
+</div>
+</div>
+
+<!-- </div> -->
+
+

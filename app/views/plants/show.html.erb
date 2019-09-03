@@ -23,6 +23,13 @@
 
     <div class="detail-content">
       <div class="titles">
+        <% if current_user.admin %>
+        <%= link_to 'Edit plant', edit_plant_path %>
+        <span>//</span>
+        <%= link_to "Delete plant", plant_path(@plant),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+        <% end  %>
         <h1 class="title"><%= @plant.name %></h1>
         <h2 class="subtitle"><%= @plant.latin_name %></h2>
       </div>
@@ -95,13 +102,13 @@
         <img class="card-img-top" src="<%= plant.remote_image_url %>">
         <div class="card-body">
           <div class="card-body-top">
-          <h5 class="card-category"><%= plant.category %></h5>
-                    <p class="plant-details"><%= plant.care_level %> ○ <%= plant.light_preference   %></p>
-        </div>
-        <div class="card-titles">
-          <h3 class="card-title"><%= plant.name %></h3>
-          <h4 class="card-subtitle"><%= plant.latin_name %></h4>
-        </div>
+            <h5 class="card-category"><%= plant.category %></h5>
+            <p class="plant-details"><%= plant.care_level %> ○ <%= plant.light_preference   %></p>
+          </div>
+          <div class="card-titles">
+            <h3 class="card-title"><%= plant.name %></h3>
+            <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+          </div>
         </div>
         <% end %>
       </div>

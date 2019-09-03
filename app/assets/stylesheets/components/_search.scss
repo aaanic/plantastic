@@ -1,14 +1,16 @@
 .search-container {
-  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 12fr;
   grid-gap: 0.25vw;
   align-items: center;
+  h2 {
+    margin-top: 0.75em;
+  }
 }
 
 .search-input {
-  width: 100%;
+  width: 90%;
   font-size: 1rem;
   padding-top: 1.5em;
   padding-bottom: 0.8em;
@@ -36,3 +38,5 @@
   stroke: #dark-gray;
   stroke-width: 1;
 }
+
+

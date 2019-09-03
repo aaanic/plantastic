@@ -8,12 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application' %>
 </head>
 
 <body>
   <%= render "shared/fullpage-navigation" %>
   <% if !current_user.nil? %>
+  <div class="navbar">
   <div class="hamburger-nav">
     <button class="hamburger hamburger--collapse" type="button">
   <span class ="hamburger-box">
@@ -21,22 +22,25 @@
   </span>
 </button>
   </div>
+  </div>
   <% end %>
 
   <%= yield %>
   <% if !current_user.nil? %>
   <%= render "shared/navbar-mobile" %>
   <% end %>
+
+
   <script>
-    const hamburger = document.querySelector('.hamburger');
+    let hamburger = document.querySelector('.hamburger');
     function openNav() {
       hamburger.classList.add('is-active');
       document.getElementById("myNav").style.width = "100%";
     }
 
     document.querySelector('body').addEventListener('click', (event) => {
-      const isActive = !!document.querySelector('.is-active')
-      const { classList } = event.target
+      let isActive = !!document.querySelector('.is-active')
+      let { classList } = event.target
 
       if (event && (classList.contains('hamburger-inner')) || (event.target.classList.contains('hamburger-box')) || (event.target.classList.contains('hamburger'))) {
           if (isActive) {
