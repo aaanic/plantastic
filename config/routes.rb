@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'pages#landing_page'
 
   get 'dashboard', to: 'pages#user_dashboard'
@@ -13,6 +12,8 @@ Rails.application.routes.draw do
   resources :reminders
 
   resources :articles
+
+  resources :invitations, only: [:new, :create]
 
   devise_for :users
 
