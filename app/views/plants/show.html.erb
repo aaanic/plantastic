@@ -23,7 +23,7 @@
 
     <div class="detail-content">
       <div class="titles">
-        <% if current_user.admin %>
+        <% if current_user && current_user.admin %>
         <%= link_to 'Edit plant', edit_plant_path %>
         <span>//</span>
         <%= link_to "Delete plant", plant_path(@plant),
