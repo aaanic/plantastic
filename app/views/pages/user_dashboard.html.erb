@@ -6,8 +6,8 @@
     <%#= link_to "Delete Plant", method: :delete %>
   <%# end %>
 <%# end %>
-<div class="empty-header"></div>
-<h1><%= current_user.first_name %>'s Dashboard</h1>
+<div class="empty-header-container">
+<h1><%= @environment.name %></h1>
 <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 
 <%#= link_to "BROWSE", browse_path %>
@@ -28,8 +28,9 @@
   <% end %></p>
 <% end %>
 
+</div>
 
-<h3><%= @environment.name %></h3>
+<h3>Plants in your environment</h3>
 
 <div class="content-container">
   <div class="card-container">

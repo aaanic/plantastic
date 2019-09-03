@@ -16,6 +16,14 @@
   </div>
 
 </div>
+<% if current_user.admin %>
+<div style="text-align: center; height: 40px">
+<%= link_to new_plant_path do %>
+<button class="btn-small btn-black">Add plant</button>
+<% end %>
+  </div>
+<% end  %>
+
 
 
 <div class="content-container">
