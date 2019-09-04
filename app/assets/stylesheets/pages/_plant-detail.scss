@@ -59,7 +59,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: grid;
     grid-gap: 3em;
@@ -88,9 +88,30 @@
     }
   }
 
+
+@media only screen and (min-width: 600px) {
+  .detail-content h4 {
+    padding-top: 20px;
+  }
+}
+
+
   .description-text {
     width: 90%;
   }
+
+
+@media only screen and (min-width: 600px) {
+  .description-text h4 {
+    padding-top: 20px;
+  }
+
+  label {
+    padding-top: 20px;
+  }
+
+}
+
 
   .overlap-right {
     display: none;
@@ -112,3 +133,5 @@
     justify-content: space-between;
   }
 }
+
+
