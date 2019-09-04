@@ -80,7 +80,7 @@
   <!-- [...] -->
 <% end %>
 
-
+<% if @environment_plant.plant_friends != [] %>
     <div class= 'related-content'>
       <div class="related-text">
         <h2>Your other plants</h2>
@@ -110,4 +110,6 @@
       </div>
 
     </div>
+
+  <% end %>
   </div>
