@@ -8,12 +8,17 @@
 <%# end %>
 <div class="empty-header-container">
   <h1><%= @environment.name %></h1>
+  <% current_user.environment.users.each do |u| %>
+  <img class="avatar-large" src="<%= u.remote_image_url %>">
+<% end %>
   <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 </div>
 
+<!-- Flat's users start -->
 <%= link_to new_invitation_path, remote: true do %>
 <div class="btn btn-black open-modal">Invite a friend</div>
 <% end %>
+<!-- Flat's users end -->
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
 
@@ -72,11 +77,11 @@
 
 <!-- Reminders -->
 <% if !@environment.reminders.nil? %>
-
 <% @reminders.order("id ASC").each do |r| %>
 <div class="reminder-card-container">
   <h3>Reminders</h3>
   <%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
+
   <div class="card-reminder">
 
     <div class="reminder-infos">
@@ -141,5 +146,6 @@
 
   </div>
 </div>
+
 
 

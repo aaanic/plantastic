@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_093646) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "remote_image_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["environment_id"], name: "index_users_on_environment_id"
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true

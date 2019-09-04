@@ -111,7 +111,7 @@
   </div>
 </div>
 
-  <% if !@user_plants.first.nil? %>
+  <% if !@user_plants.first.nil? && !@user_plants.first.photo.file.nil? %>
   <h2><%= @plant.name %> in the Plantastic Community</h2>
   <!-- <div class="gallery"> -->
     <% @user_plants.each do |user_plant| %>
