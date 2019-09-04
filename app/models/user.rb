@@ -9,4 +9,5 @@ class User < ApplicationRecord
   # has_many :environments, through: :environment_users
 
   has_many :reminders
+  has_many :invitations
 end
