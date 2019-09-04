@@ -21,13 +21,17 @@
         <%= label_tag cat %>
         <%= check_box_tag('categories[]', cat.to_sym) %>
       <% end %>
-      <% @max_heights.each do |max| %>
+      <% @max_height.each do |max| %>
         <%= label_tag max %>
-        <%= check_box_tag('max_heights[]', max.to_sym) %>
+        <%= check_box_tag('max_height[]', max.to_sym) %>
       <% end %>
       <% @light_preference.each do |light| %>
         <%= label_tag light %>
         <%= check_box_tag('light_preference[]', light.to_sym) %>
+      <% end %>
+      <% @care_level.each do |care| %>
+        <%= label_tag care %>
+        <%= check_box_tag('care_level[]', care.to_sym) %>
       <% end %>
       <%= submit_tag %>
     <% end %>

@@ -8,6 +8,22 @@ class Plant < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
+  scope :by_category, -> (categories) do
+    where(category: categories)
+  end
+
+  scope :by_height, -> (height) do
+    where(max_height: height)
+  end
+
+  scope :by_light, -> (lights) do
+    where(light_preference: lights)
+  end
+
+  scope :by_care, -> (care_levels) do
+    where(care_level: care_levels)
+  end
+
   def related
     Plant.all.reject { |x| x == self }
   end
