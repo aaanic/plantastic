@@ -22,13 +22,14 @@
 }
 
 .banner-content {
+  height:100%;
   display: grid;
   grid-template-rows: 20vh 20vh 1fr 5fr;
   position: fixed;
   left: 0;
   right: 0;
   z-index: 9999;
-  h1, p {
+  h1, h2, p {
     margin: 0 auto;
     text-align: center;
   }
@@ -38,9 +39,20 @@
   grid-template-rows: 15vh 10vh 4fr 1fr 2fr;
 }
 
+.banner-content.login {
+  grid-template-rows: 20vh 20vh 9fr 2fr;
+}
+
+.banner-content.reset-password {
+  grid-template-rows: 20vh 20vh 9fr 1fr 3fr;
+}
+
+
 .login-option {
   justify-self: flex-end;
   display: flex;
   padding: 12px;
   color: $white;
 }
+
+
