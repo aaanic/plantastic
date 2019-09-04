@@ -1,5 +1,5 @@
 <body class="green-banner">
-<div class="banner-content">
+<div class="banner-content login">
   <div></div>
 <h1>Log in</h1>
 
@@ -19,11 +19,19 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="form-actions-login center-form">
+    <%= f.button :submit, "Log in", class: "btn btn-black center" %>
+  <div class="center-form">
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br /><% end %>
+  </div>
   </div>
 <% end %>
+<div class="center-form">
+  <%= link_to new_registration_path(resource_name) do %>
+  <button class ="btn btn-outline-black">Sign up</button>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
 </div>
 </body>
