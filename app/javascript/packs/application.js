@@ -22,7 +22,6 @@ Rails.start()
 Turbolinks.start()
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("hello");
 // Modal Reminders
 // Get the button that opens the modal
     const btn = document.querySelector('.open-modal');
@@ -31,30 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get the <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal
-    btn.addEventListener("click", openModal);
+    if (btn) {
+      // When the user clicks the button, open the modal
+      btn.addEventListener("click", openModal);
 
-    function openModal() {
-      modal.classList.add("modal-active");
-    }
+      function openModal() {
+        modal.classList.add("modal-active");
+      }
 
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.classList.remove("modal-active");
-    }
-
-    const submitClose = document.querySelector(".button-center button");
-      console.log(submitClose);
-    submitClose.addEventListener("click", function() {
-      modal.classList.remove("modal-active");
-    })
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
         modal.classList.remove("modal-active");
       }
-    }
 
+      const submitClose = document.querySelector(".button-center button");
+        console.log(submitClose);
+      submitClose.addEventListener("click", function() {
+        modal.classList.remove("modal-active");
+      })
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.classList.remove("modal-active");
+        }
+      }
+    }
 })

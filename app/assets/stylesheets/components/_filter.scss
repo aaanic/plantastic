@@ -1,0 +1,30 @@
+.filters {
+  margin: 2em 0 2em 0;
+  padding: 0 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filter-option {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.filter-box {
+  position: absolute;
+  z-index: 99;
+  width: 250px;
+  background-color: $white;
+  padding: 1em;
+  border-radius: 5px;
+  border: 0.5px solid $light-gray;
+}
+
+.filter-option > input#categories_ {
+  margin-right: 12px;
+}
+
+.hidden-filters {
+  display: none;
+}
