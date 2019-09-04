@@ -11,15 +11,21 @@
   <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 </div>
 
-<%# link_to "Create a new reminder", new_reminder_path %>
+<%= link_to new_invitation_path, remote: true do %>
+<div class="btn btn-black open-modal">Invite a friend</div>
+<% end %>
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
 
+<%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
 
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
 
+
+
   <div class="reminder-container">
+
 
     <div class="reminder-header-green">
       <h3>New Reminder</h3>

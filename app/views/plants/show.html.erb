@@ -23,7 +23,7 @@
 
     <div class="detail-content">
       <div class="titles">
-        <% if current_user.admin %>
+        <% if current_user && current_user.admin %>
         <%= link_to 'Edit plant', edit_plant_path %>
         <span>//</span>
         <%= link_to "Delete plant", plant_path(@plant),
@@ -86,6 +86,16 @@
 
     </div>
   </div>
+
+
+<% if !@user_plants.first.nil? %>
+  <h2><%= @plant.name %> in the Plantastic Community</h2>
+  <!-- <div class="gallery"> -->
+  <% @user_plants.each do |user_plant| %>
+  <%= cl_image_tag user_plant.photo, height: 300,   width: 400, crop: :fill  %>
+  <% end %>
+  <!-- </div> -->
+<% end %>
 
 
   <div class= 'related-content'>
