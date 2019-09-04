@@ -4,6 +4,8 @@ class EnvironmentPlant < ApplicationRecord
 
   validates :nickname, presence: true, allow_nil: true
 
+  mount_uploader :photo, PhotoUploader
+
   def plant_friends
     environment = self.environment_id
     all_plants_in_environement = EnvironmentPlant.where("environment_id = '#{environment}'")

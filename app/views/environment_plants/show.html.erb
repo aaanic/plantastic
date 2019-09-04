@@ -69,6 +69,18 @@
     </div>
   </div>
 
+  <h2>Your plant</h2>
+ <%= cl_image_tag @environment_plant.photo, height: 300, width: 400, crop: :fill %>
+
+  <%= simple_form_for(@environment_plant) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Upload Image" %>
+  <!-- [...] -->
+<% end %>
+
+
     <div class= 'related-content'>
       <div class="related-text">
         <h2>Your other plants</h2>
