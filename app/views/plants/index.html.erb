@@ -14,82 +14,87 @@
       <div><p> </p></div>
       <h2><%=@plants.count%> Plants</h2>
     </div>
-        </div>
+  </div>
 
-    <div class="filters"style="position: relative; background-color: rgba(255,255,255,0.6">
-      <button class="btn btn-outline-black">Care Level</button>
-      <div>
-         <button class="btn btn-outline-black plant--filter">Category</button>
-         <div class="filter-box hidden-filters">
+  <div class="filters"style="position: relative; background-color: rgba(255,255,255,0.6">
+    <button class="btn btn-outline-black">Care Level</button>
+    <div>
+     <button class="btn btn-outline-black plant--filter">Category</button>
+     <div class="filter-box hidden-filters">
       <%= form_tag plants_path, method: :get do %>
       <% @categories.each do |cat| %>
       <div class="filter-option">
-      <%= check_box_tag('categories[]', cat.to_sym )%>
-      <%= label_tag cat %>
-    </div>
+        <%= check_box_tag('categories[]', cat.to_sym )%>
+        <%= label_tag cat %>
+      </div>
       <% end %>
-      </div>
-      </div>
-      <div>
-        <button class="btn btn-outline-black  plant--filter">Max Height</button>
-        <div class="filter-box hidden-filters">
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-outline-black  plant--filter">Max Height</button>
+    <div class="filter-box hidden-filters">
       <% @max_heights.each do |max| %>
       <div class="filter-option">
-      <%= check_box_tag('max_heights[]', max.to_sym) %>
-      <%= label_tag max %>
-    </div>
-    <% end %>
+        <%= check_box_tag('max_heights[]', max.to_sym) %>
+        <%= label_tag max %>
+      </div>
+      <% end %>
     </div>
   </div>
-    <div>
-      <button class="btn btn-outline-black  plant--filter">Light Preferences</button>
-       <div class="filter-box hidden-filters" id="light-filter">
+  <div>
+    <button class="btn btn-outline-black  plant--filter">Light Preferences</button>
+    <div class="filter-box hidden-filters" id="light-filter">
       <% @light_preference.each do |light| %>
       <div class="filter-option">
-      <%= check_box_tag('light_preference[]', light.to_sym) %>
-      <%= label_tag light %>
+        <%= check_box_tag('light_preference[]', light.to_sym) %>
+        <%= label_tag light %>
       </div>
       <% end %>
-      </div>
     </div>
-
-<%= submit_tag "Filter", class: "btn btn-black" %>
-<% end %>
   </div>
-  <% if current_user && current_user.admin %>
 
-  <div style="text-align: center; height: 40px">
-    <%= link_to new_plant_path do %>
-    <button class="btn-small btn-black">Add plant</button>
-    <% end %>
-  </div>
-  <% end  %>
+  <% @care_level.each do |care| %>
+  <%= label_tag care %>
+  <%= check_box_tag('care_level[]', care.to_sym) %>
+  <% end %>
 
-  <div class="content-container">
-    <div class="card-container">
+  <%= submit_tag "Filter", class: "btn btn-black" %>
+  <% end %>
+</div>
+<% if current_user && current_user.admin %>
 
-      <% @plants.each do |plant| %>
-      <div class="card">
-        <%= link_to plant_path(plant) do %>
-        <img class="card-img-top" src="<%= plant.remote_image_url %>">
-        <div class="card-body">
-          <div class="card-body-top">
-            <h5 class="card-category"><%= plant.category %></h5>
-            <p class="plant-details"><%= plant.care_level %> ○ <%= plant.light_preference   %></p>
-          </div>
-          <div class="card-titles">
-            <h3 class="card-title"><%= plant.name %></h3>
-            <h4 class="card-subtitle"><%= plant.latin_name %></h4>
-          </div>
+<div style="text-align: center; height: 40px">
+  <%= link_to new_plant_path do %>
+  <button class="btn-small btn-black">Add plant</button>
+  <% end %>
+</div>
+<% end  %>
+
+<div class="content-container">
+  <div class="card-container">
+
+    <% @plants.each do |plant| %>
+    <div class="card">
+      <%= link_to plant_path(plant) do %>
+      <img class="card-img-top" src="<%= plant.remote_image_url %>">
+      <div class="card-body">
+        <div class="card-body-top">
+          <h5 class="card-category"><%= plant.category %></h5>
+          <p class="plant-details"><%= plant.care_level %> ○ <%= plant.light_preference   %></p>
         </div>
-        <% end %>
+        <div class="card-titles">
+          <h3 class="card-title"><%= plant.name %></h3>
+          <h4 class="card-subtitle"><%= plant.latin_name %></h4>
+        </div>
       </div>
       <% end %>
-
     </div>
-  </div>
+    <% end %>
 
-  <script>
+  </div>
+</div>
+
+<script>
     // const category = document.getElementById("categories-btn")
 
     // const hiddenCategories = document.getElementById("categories-filter")
