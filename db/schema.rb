@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_103050) do
+
+ActiveRecord::Schema.define(version: 2019_09_03_201504) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_103050) do
     t.bigint "environment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["environment_id"], name: "index_environment_plants_on_environment_id"
     t.index ["plant_id"], name: "index_environment_plants_on_plant_id"
   end

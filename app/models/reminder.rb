@@ -57,4 +57,10 @@ class Reminder < ApplicationRecord
       repeatMailer(waitDate)
     end
   end
+
+  def clear_sidekiq_jobs
+    if self.frequency == 'NONE'
+      Sidekiq::ScheduledSet.new.clear
+    end
+  end
 end

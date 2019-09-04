@@ -1,15 +1,29 @@
-<h1><%= current_user.first_name %>'s Dashboard</h1>
+<%# if @user_plants %>
+  <%# @user_plants.each do |user_plant| %>
+    <%#= user_plant.nickname %>
+    <%#= user_plant.plant.name %>
+    <%#= link_to "Edit Plant", edit_user_plant_path(user_plant) %>
+    <%#= link_to "Delete Plant", method: :delete %>
+  <%# end %>
+<%# end %>
+<div class="empty-header-container">
+<h1><%= @environment.name %></h1>
+<%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 
 <%= link_to new_invitation_path, remote: true do %>
 <div class="btn btn-black open-modal">Invite a friend</div>
 <% end %>
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
-
+<%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
+  
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
 
+
+
   <div class="reminder-container">
+
 
     <div class="reminder-header-green">
       <h3>New Reminder</h3>
@@ -27,7 +41,7 @@
           <div class="field">
             <%= f.label "Weekday" %>
             <div class="reminder-input-field-outline">
-              <%= f.select(:weekday, collection: WEEKDAYS, placeholder: "Choose Weekday") %>
+              <%= f.select(:weekday, collection: WEEKDAYS) %>
             </div>
           </div>
 
@@ -76,8 +90,7 @@
   </p>
 <% end %>
 
-
-  <!-- REMINDER CARD -->
+</div>
 
 <!--   <div class="card-reminder">
 
