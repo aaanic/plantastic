@@ -9,7 +9,13 @@ class InvitationsController < ApplicationController
     authorize @invitation
     user = User.invite!(invitation_params)
     user.environment_id = current_user.environment_id
-    user.save
+
+    if user.save
+      redirect_to dashboard_path
+    else
+      render :new
+    end
+    
   end
 
   private

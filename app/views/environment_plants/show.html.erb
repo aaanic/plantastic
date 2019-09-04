@@ -65,10 +65,23 @@
         </div>
       </div>
       <p class="description-text"><%= @environment_plant.plant.description %></p>
-
+      <p class="description-text"><%= @environment_plant.plant.general %></p>
+      <p class="description-text"><%= @environment_plant.plant.care %></p>
     </div>
   </div>
 
+  <h2>Your plant</h2>
+ <%= cl_image_tag @environment_plant.photo, height: 300, width: 400, crop: :fill %>
+
+  <%= simple_form_for(@environment_plant) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Upload Image" %>
+  <!-- [...] -->
+<% end %>
+
+<% if @environment_plant.plant_friends != [] %>
     <div class= 'related-content'>
       <div class="related-text">
         <h2>Your other plants</h2>
@@ -98,4 +111,6 @@
       </div>
 
     </div>
+
+  <% end %>
   </div>

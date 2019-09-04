@@ -1,7 +1,7 @@
 class ReminderMailer < ApplicationMailer
 
   def reminder
-    @user = params[:user]
+    @user = User.find(params[:user_id])
     @environment_users = Environment.find(@user.environment_id).users
     env_names = [];
     @environment_users.each do |env|

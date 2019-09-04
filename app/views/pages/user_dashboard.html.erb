@@ -1,18 +1,22 @@
 <%# if @user_plants %>
-  <%# @user_plants.each do |user_plant| %>
-    <%#= user_plant.nickname %>
-    <%#= user_plant.plant.name %>
-    <%#= link_to "Edit Plant", edit_user_plant_path(user_plant) %>
-    <%#= link_to "Delete Plant", method: :delete %>
-  <%# end %>
+<%# @user_plants.each do |user_plant| %>
+<%#= user_plant.nickname %>
+<%#= user_plant.plant.name %>
+<%#= link_to "Edit Plant", edit_user_plant_path(user_plant) %>
+<%#= link_to "Delete Plant", method: :delete %>
+<%# end %>
 <%# end %>
 <div class="empty-header-container">
-<h1><%= @environment.name %></h1>
-<%= link_to "Log out", destroy_user_session_path, method: :delete  %>
+  <h1><%= @environment.name %></h1>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
+</div>
 
-<%# link_to "Create a new reminder", new_reminder_path %>
+<%= link_to new_invitation_path, remote: true do %>
+<div class="btn btn-black open-modal">Invite a friend</div>
+<% end %>
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
+
 <%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
 
 <!-- Start Modal create reminder -->
@@ -38,24 +42,18 @@
         <div class="datetime">
           <div class="field">
             <%= f.label "Weekday" %>
-            <div class="reminder-input-field-outline">
-              <%= f.select(:weekday, collection: WEEKDAYS) %>
-            </div>
+              <%= f.select(:weekday, WEEKDAYS, {}, { class: "reminder-input-field-outline" }) %>
           </div>
 
           <div class="field">
             <%= f.label "Hour" %>
-            <div class="reminder-input-field-outline">
-              <%= f.select(:hours, collection: HOURS) %>
-            </div>
+              <%= f.select(:hours, HOURS, {}, { class: "reminder-input-field-outline" }) %>
           </div>
         </div>
       </div>
 
       <%= f.label "Set your Reminder" %>
-      <div id="alert" class="reminder-input-field-outline">
-        <%= f.select(:frequency, collection: FREQUENCIES) %>
-      </div>
+        <%= f.select(:frequency, FREQUENCIES, {}, { class: "reminder-input-field-outline", id: "alert" }) %>
 
       <%= f.label "Notes" %>
       <%= f.text_area :description, as: :text, placeholder: "Details…", class: "reminder-input-field-outline" %>
@@ -73,22 +71,7 @@
 <%# link_to "Create a new reminder", new_reminder_path %>
 
 
-<% @reminders.order("id ASC").each do |r| %>
-    <%= r.name %>
-    <%= r.weekday %>
-    <%= r.description %>
-    <%= r.hours %>
-    <%= r.weekday %>
-    <% if policy(Reminder).edit? %>
-      <%= link_to "Edit", edit_reminder_path(r) %>
-    <% end %>
-    <% if policy(Reminder).destroy? %>
-      <%= link_to "Delete", reminder_path(r), method: :delete %>
-    <% end %>
-  </p>
-<% end %>
-
-</div>
+<!-- Reminders -->
 
 <!-- Flat's users start -->
 <% current_user.environment.users.each do |u| %>
@@ -96,51 +79,80 @@
 <% end %>
 <!-- Flat's users end -->
 
-
 <!--   <div class="card-reminder">
 
-    <div class="reminder-left">
-      <img src="notification.svg" alt="notification">
-      <h5>19:00</h5>
-    </div>
+<h3>Reminders</h3>
+
+  <% @reminders.order("id ASC").each do |r| %>
+  <div class="reminder-card-container">
+  <div class="card-reminder">
 
     <div class="reminder-infos">
-      <div class="card-reminder-date-edit">
-        <h5>Reminder Date</h5>
-        <h4>Reminder Title</h4>
-        <p>Reminder Description, height matches according to number of lines</p>
+
+      <!--       <div class=" card-reminder-date-edit"> -->
+        <div class="reminder-infos-top">
+          <h5><%= r.weekday%> <%=r.hours%> H</h5>
+        <div>
+          <% if policy(Reminder).edit? %>
+          <%= link_to "edit", edit_reminder_path(r) %>
+<!--           <svg class="svg-icon" viewBox="0 0 20 20">
+            <path fill="none" d="M19.404,6.65l-5.998-5.996c-0.292-0.292-0.765-0.292-1.056,0l-2.22,2.22l-8.311,8.313l-0.003,0.001v0.003l-0.161,0.161c-0.114,0.112-0.187,0.258-0.21,0.417l-1.059,7.051c-0.035,0.233,0.044,0.47,0.21,0.639c0.143,0.14,0.333,0.219,0.528,0.219c0.038,0,0.073-0.003,0.111-0.009l7.054-1.055c0.158-0.025,0.306-0.098,0.417-0.211l8.478-8.476l2.22-2.22C19.695,7.414,19.695,6.941,19.404,6.65z M8.341,16.656l-0.989-0.99l7.258-7.258l0.989,0.99L8.341,16.656z M2.332,15.919l0.411-2.748l4.143,4.143l-2.748,0.41L2.332,15.919z M13.554,7.351L6.296,14.61l-0.849-0.848l7.259-7.258l0.423,0.424L13.554,7.351zM10.658,4.457l0.992,0.99l-7.259,7.258L3.4,11.715L10.658,4.457z M16.656,8.342l-1.517-1.517V6.823h-0.003l-0.951-0.951l-2.471-2.471l1.164-1.164l4.942,4.94L16.656,8.342z"></path>
+          </svg> -->
+          <% end %>
+          <%# end %>
+
+          <% if policy(Reminder).destroy? %>
+          <%= link_to reminder_path(r), method: :delete do %>
+          <svg class="svg-icon" viewBox="0 0 20 20">
+            <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
+          </svg>
+          <% end %>
+          <% end %>
+        </div>
+        </div>
+        <!--       </div> -->
+        <h5>Repeat <%= r.frequency %></h5>
+
+        <h4><%= r.name %></h4>
+        <p><%= r.description %></p>
       </div>
-      <img src="edit.svg" alt="edit">
+
+
     </div>
 
-  </div> -->
+  </div>
+  <% end %>
+</div>
 
 
-  <h3><%= @environment.name %></h3>
 
-  <div class="content-container">
-    <div class="card-container">
+<!-- Environment Plants -->
+<h3><%= @environment.name %></h3>
 
-      <% @environment_plants.each do |ep| %>
-      <div class="card">
-        <%= link_to environment_plant_path(ep) do %>
-        <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
-        <div class="card-body">
-          <h5 class="card-category"><%= ep.plant.category %></h5>
-          <% if ep.nickname.nil? %>
-          <h3 class="card-title"><%= ep.plant.name %></h3>
-          <% else %>
-          <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
-          <% end %>
-          <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
-          <a href="#" class="card-care-tag">Go somewhere</a>
-        </div>
+<div class="content-container">
+
+  <div class="card-container">
+
+    <% @environment_plants.each do |ep| %>
+    <div class="card">
+      <%= link_to environment_plant_path(ep) do %>
+      <img class="card-img-top" src="<%= ep.plant.remote_image_url %>">
+      <div class="card-body">
+        <h5 class="card-category"><%= ep.plant.category %></h5>
+        <% if ep.nickname.nil? %>
+        <h3 class="card-title"><%= ep.plant.name %></h3>
+        <% else %>
+        <h3 class="card-title"> <%= ep.nickname %> (<%=ep.plant.name%>)</h3>
         <% end %>
+        <h4 class="card-subtitle"><%= ep.plant.latin_name %></h4>
+        <a href="#" class="card-care-tag">Go somewhere</a>
       </div>
       <% end %>
-
     </div>
+    <% end %>
+
   </div>
+</div>
 
 
 

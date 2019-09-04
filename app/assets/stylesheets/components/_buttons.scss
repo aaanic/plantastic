@@ -4,8 +4,9 @@
   font-size: 1em;
   padding: 0.8em 2em;
   border-radius: 40px;
-  min-width: 200px;
+  min-width: 180px;
   max-width: 250px;
+  max-height: 46px;
   border: none;
   text-transform: capitalize;
   display: inline-block;
@@ -24,6 +25,9 @@
   max-width: 250px;
   text-transform: capitalize;
   background-color: transparent;
+  &:hover{
+    transition-duration: 0.3s;
+  }
 }
 .btn-round {
   font-family: 'Merriweather', serif;
@@ -32,6 +36,9 @@
   width: 2em;
   height: 2em;
   text-align: center;
+  &:hover{
+    transition-duration: 0.3s;
+  }
 }
 .btn-black {
   background: $dark-gray;
@@ -47,11 +54,10 @@
 }
 
 .btn-outline-black {
-  border: solid 1px $dark-gray;
+  border: solid 1px rgba(48, 46, 46, 0.4);
   background-color: transparent;
   &:hover {
-    background: $dark-gray;
-    color: $white;
+    border-color: $dark-gray;
     // opacity: 0.7;
   }
 }
@@ -80,10 +86,13 @@
   background-color: $white;
 }
 
-/* Button Reminder */
+/* Button Reminder Form */
 
 .button-center {
   display: flex;
   justify-content: space-around;
   padding-top: 20px;
 }
+
+
+

@@ -34,7 +34,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  border: none;
+  border: 0;
   cursor: pointer;
 }
 
@@ -43,6 +43,9 @@ select#reminder_weekday, select#reminder_hours, select#reminder_frequency {
   text-transform: lowercase;
   font-size: calc(0.8rem + 0.3vw);
   color: #302E2E;
+  &:focus {
+    outline: 0;
+  }
 }
 
 
@@ -135,8 +138,10 @@ textarea#reminder_description {
 }
 
 
+
+
 .reminder-input-field-outline:focus {
-  outline: none;
+  outline: 0;
   box-shadow: 0px 0px 8px #0066ff;
 }
 
