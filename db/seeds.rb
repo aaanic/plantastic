@@ -1,19 +1,19 @@
-puts "Rendering Geller's Flat"
-ny_flat = Environment.create!(name: "The Geller's New York Flat")
-puts "Welcome Ross, Rachel and Emma"
+puts "Rendering the Johansson's flat"
+stockholm_flat = Environment.create!(name: "The Johansson's Stockholm Flat")
 
-puts "Chandler, their neighbor"
-neighbor = Environment.create!(name: "Chandler's Goose Flat")
+puts "Welcome Emma and Sven"
+User.create!(username: "Emma123", first_name: "Emma", last_name: "Green", email: "emma@green.com", password: "iamgreen", environment: stockholm_flat, admin: true, remote_image_url: "https://imgur.com/XBOedSP.jpg")
+puts "Emma moves in"
+User.create!(username: "Svenster", first_name: "Sven", last_name: "Johansson", email: "sven@johansson.com", password: "iamsven", environment: stockholm_flat, remote_image_url: "https://imgur.com/10JnjOG.jpg")
+puts "Sven moves in too!"
 
-puts "Rachel and Ross have a baby!"
-User.create!(username: "greeny", first_name: "emma", last_name: "green", email: "emma@green.com", password: "iamgreen", environment: ny_flat)
-puts "Emma was born!"
+puts "Rendering their neighbor's studio"
+neighbor = Environment.create!(name: "Bjorn's Studio")
 
-puts "Chandler moves in"
-User.create!(username: "chan", first_name: "Chandler", last_name: "Bing", email: "chandler@friends.com", password: "chandlerisfunny", environment: neighbor)
+puts "Bjorn moves in next door"
+User.create!(username: "iambjorn", first_name: "Bjorn", last_name: "Andersson", email: "bjorn@andersson.com", password: "iambjorn", environment: neighbor, remote_image_url: "https://i.imgur.com/0g53fxQ.jpg")
 
 puts ""
-
 puts ""
 
 puts "Planting seeds"

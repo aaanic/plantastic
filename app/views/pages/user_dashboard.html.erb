@@ -14,7 +14,7 @@
 
 <div class="btn btn-black open-modal">Create new Reminder</div>
 <%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
-  
+
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
 
@@ -90,6 +90,13 @@
 
 </div>
 
+<!-- Flat's users start -->
+<% current_user.environment.users.each do |u| %>
+  <img class="avatar-large" src="<%= u.remote_image_url %>">
+<% end %>
+<!-- Flat's users end -->
+
+
 <!--   <div class="card-reminder">
 
     <div class="reminder-left">
@@ -134,5 +141,6 @@
 
     </div>
   </div>
+
 
 
