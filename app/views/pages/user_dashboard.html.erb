@@ -68,8 +68,9 @@
 <!-- Reminders -->
 
 <h3>Reminders</h3>
-<div class="reminder-card-container">
+
   <% @reminders.order("id ASC").each do |r| %>
+  <div class="reminder-card-container">
   <div class="card-reminder">
 
     <div class="reminder-infos">
