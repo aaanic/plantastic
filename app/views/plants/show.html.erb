@@ -90,13 +90,26 @@
       </div>
 
 
-      <p class="description-text"><%= @plant.description %></p>
-      <p class="description-text"><%= @plant.general %></p>
-      <p class="description-text"><%= @plant.care %></p>
 
-    </div>
+      <h4 class="description-text"><%= @plant.description %></h4>
+
+<div class="tabbed">
+   <input checked="checked" id="tab1" type="radio" name="tabs" />
+   <input id="tab2" type="radio" name="tabs" />
+
+   <nav>
+      <label for="tab1">General</label>
+      <label for="tab2">Care</label>
+   </nav>
+
+   <figure>
+      <div class="tab1"><p><%= @plant.general %></p></div>
+      <div class="tab2"><p><%= @plant.care %></p>
+ </div>
+   </figure>
+</div>
   </div>
-
+</div>
 
   <% if !@user_plants.first.nil? %>
   <h2><%= @plant.name %> in the Plantastic Community</h2>
@@ -135,4 +148,27 @@
         <% end %>
       </div>
     </div>
+
+  <script>
+    function openCity(evt, cityName) {
+  // Declare all variables
+  const i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 
