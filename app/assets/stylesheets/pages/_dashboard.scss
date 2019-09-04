@@ -1,0 +1,14 @@
+.environment-box {
+  width: 500px;
+  padding: 2em;
+  background-color: #fff;
+  border: 1px solid $light-gray;
+  position: absolute;
+  bottom: 2em;
+}
+
+@media only screen and (max-device-width: 400px) {
+.environment-box {
+  width: 280px;
+}
+}

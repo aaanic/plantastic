@@ -2,10 +2,22 @@
   height: 70vh;
 }
 
+.header-wrapper {
+padding-bottom: 10vh;
+position: relative;
+}
+
 .empty-header-container {
   height: 6vh;
   padding: 8vh 5vw;
 }
+
+.linear-green-header-container {
+  min-height: 33vh;
+  padding: 8vh 5vw;
+  background: linear-gradient(164.26deg, rgba(122, 145, 116, 0.23) 0%, rgba(122, 145, 116, 0.8) 93.18%);
+}
+
 
 .article-header {
   height: 50vh;
@@ -50,6 +62,10 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+
+  .linear-green-header-container {
+    display: flex;
   }
 
 }

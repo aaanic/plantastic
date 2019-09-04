@@ -95,19 +95,20 @@
         <% @environment_plant.plant_friends.sample(3).each do |eplant| %>
         <%= link_to environment_plant_path(eplant) do %>
         <div class="card">
-          <img class="card-img-top" src="<%= eplant.plant.remote_image_url %>">
-          <div class="card-body">
-            <div class="card-body-top">
-              <h5 class="card-category"><%= eplant.plant.category %></h5>
-              <p class="plant-details"><%= eplant.plant.care_level %> ○ <%= eplant.plant.light_preference   %></p>
-            </div>
-
-            <div class="card-titles">
-              <h3 class="card-title"><%= eplant.plant.name %></h3>
-              <h4 class="card-subtitle"><%= eplant.plant.latin_name %></h4>
-            </div>
-          </div>
-        </div>
+      <img class="card-img-top" src="<%= eplant.plant.remote_image_url %>">
+      <div class="card-body">
+      <div class="card-body-top">
+        <h5 class="card-category"><%= eplant.plant.category %></h5>
+        <p class="plant-details"><%= eplant.plant.care_level %> ○ <%= eplant.plant.light_preference   %></p>
+      </div>
+        <h3 class="card-title"><%= eplant.plant.name %></h3>
+        <% if eplant.nickname.nil? %>
+        <h4 class="card-subtitle"><%= eplant.plant.latin_name %></h4>
+        <% else %>
+        <h4 style="color: #ffac81"> <%= eplant.nickname %></h4>
+        <% end %>
+      </div>
+      </div>
         <% end %>
         <% end %>
       </div>
