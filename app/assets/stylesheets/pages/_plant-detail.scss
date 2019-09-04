@@ -63,7 +63,7 @@
     height: 100vh;
     display: grid;
     grid-gap: 3em;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.25fr;
   }
 
   .titles {
@@ -75,17 +75,23 @@
   }
 
   .detail-content {
+    height: 100%;
     display: grid;
-    grid-template-rows: 25vh auto 1fr 4fr;
+    grid-template-rows: 25vh auto 1fr 2fr 2fr;
     align-self: center;
     justify-self: start;
-    max-width: 30vw;
+    max-width: 45vw;
     height: 80vh;
     p {
       align-self:center;
       margin: 0 auto;
     }
   }
+
+  .description-text {
+    width: 90%;
+  }
+
   .overlap-right {
     display: none;
   }

@@ -101,7 +101,7 @@ private
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :latin_name, :max_height, :light_preference, :care_level, :remote_image_url)
+    params.require(:plant).permit(:name, :latin_name, :max_height, :light_preference, :care_level, :remote_image_url, :description, :general, :care)
   end
 
 end
