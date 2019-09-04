@@ -73,6 +73,14 @@
 
 <!-- Reminders -->
 
+<!-- Flat's users start -->
+<% current_user.environment.users.each do |u| %>
+  <img class="avatar-large" src="<%= u.remote_image_url %>">
+<% end %>
+<!-- Flat's users end -->
+
+<!--   <div class="card-reminder">
+
 <h3>Reminders</h3>
 
   <% @reminders.order("id ASC").each do |r| %>
@@ -145,5 +153,6 @@
 
   </div>
 </div>
+
 
 

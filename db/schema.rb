@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_09_03_201504) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_201504) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "specifics"
+    t.text "general"
+    t.text "care"
   end
 
   create_table "reminders", force: :cascade do |t|
@@ -97,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_201504) do
     t.string "last_name"
     t.bigint "environment_id"
     t.boolean "admin"
+    t.string "remote_image_url"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -105,6 +109,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_201504) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["environment_id"], name: "index_users_on_environment_id"
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
