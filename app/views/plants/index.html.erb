@@ -33,9 +33,9 @@
   <div>
     <button class="btn btn-outline-black  plant--filter">Max Height</button>
     <div class="filter-box hidden-filters">
-      <% @max_heights.each do |max| %>
+      <% @max_height.each do |max| %>
       <div class="filter-option">
-        <%= check_box_tag('max_heights[]', max.to_sym) %>
+        <%= check_box_tag('max_height[]', max.to_sym) %>
         <%= label_tag max %>
       </div>
       <% end %>
