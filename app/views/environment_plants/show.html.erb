@@ -71,7 +71,9 @@
   </div>
 
   <h2>Your plant</h2>
- <%= cl_image_tag @environment_plant.photo, height: 300, width: 400, crop: :fill %>
+  <% if @environment_plant.photo.file %>
+   <%= cl_image_tag @environment_plant.photo, height: 300, width: 400, crop: :fill %>
+ <% end %>
 
   <%= simple_form_for(@environment_plant) do |f| %>
   <!-- [...] -->
