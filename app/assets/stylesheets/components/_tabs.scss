@@ -1,0 +1,56 @@
+/* Tabs mit radio-Buttons */
+
+.tabbed figure {
+   display: block;
+   margin-left: 0;
+   clear: both;
+}
+
+.tabbed > input,
+.tabbed figure > div { display: none; }
+
+.tabbed figure>div {
+  padding-top: 20px;
+  width: 100%;
+  background: #fff;
+  line-height: 1.5em;
+  letter-spacing: 0.3px;
+  color: #444;
+}
+
+#tab1:checked ~ figure .tab1,
+#tab2:checked ~ figure .tab2 {
+  display: block; }
+
+nav label {
+  margin-right: 30px;
+   float: left;
+   padding: 15px 0;
+   border-bottom: 1px solid rgba(48, 46, 46, 0.4);
+   color: rgba(48, 46, 46, 0.4);
+}
+
+
+nav label:hover { background: hsl(210,50%,40%); }
+nav label:active { background: #ffffff; }
+
+#tab1:checked ~ nav label[for="tab1"],
+#tab2:checked ~ nav label[for="tab2"] {
+  background: white;
+  color: #111;
+  position: relative;
+  border-bottom: none;
+}
+
+#tab1:checked ~ nav label[for="tab1"]:after,
+#tab2:checked ~ nav label[for="tab2"]:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: white;
+  left: 0;
+  bottom: -1px;
+  border-bottom: 1px solid $dark-gray;
+}
