@@ -18,6 +18,7 @@
     <label for="toggle" class="switch"></label>
   </div>
   </div>
+  <div>
       <% current_user.environment.users.each do |u| %>
         <img class="avatar-large" src="<%= u.remote_image_url %>">
       <% end %>
@@ -26,41 +27,48 @@
       <%= link_to new_invitation_path do %>
         <button class="btn-small btn-outline-black">Invite a friend</button>
       <% end %>
+      </div>
+              <h3 class="mmt smb">Reminders</h3>
+      <div class="reminders-content">
       <!-- Reminders -->
       <% if !@environment.reminders.nil? %>
-        <h3 class="mmt smb">Reminders</h3>
         <% @reminders.order("id ASC").each do |r| %>
           <div class="reminder-card-container">
             <!--   <%= link_to 'Turn Off Reminders', stop_reminders_path, method: :post %>
              -->
-            <div class="card-reminder">
               <div class="reminder-infos">
-                <div class="reminder-infos-top">
-                  <h5><%= r.weekday%> <%=r.hours%> H</h5>
-                  <div>
+                  <div class="card-left-green">
+                    <div class="reminder-card-infos">
+                    <h5><%= r.weekday%></h5>
+                    <h5><%=r.hours%> H</h5>
+                    <h5>Repeat <%= r.frequency %></h5>
+                  </div>
+                  </div>
+                  <div class="card-middle">                <h4><%= r.name %></h4>
+                <p><%= r.description %></p></div>
+
+                  <div class="card-right">
                     <% if policy(Reminder).edit? %>
-                    <%= link_to "edit", edit_reminder_path(r) %>
+                    <%= link_to "Edit", edit_reminder_path(r) %>
                     <% end %>
 
                     <% if policy(Reminder).destroy? %>
                     <%= link_to reminder_path(r), method: :delete do %>
-                    <svg class="svg-icon" viewBox="0 0 20 20">
+                    <svg class="svg-icon delete-icon" viewBox="0 0 20 20">
                       <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
                     </svg>
                     <% end %>
                     <% end %>
                   </div>
-                </div>
                 <!--       </div> -->
-                <h5>Repeat <%= r.frequency %></h5>
 
-                <h4><%= r.name %></h4>
-                <p><%= r.description %></p>
+
+
               </div>
-            </div>
           </div>
         <% end %>
       <% end %>
+      </div>
       <button class="btn btn-black mmt open-modal center-horizontal">Add a Reminder</button>
     </div>
   </div>
