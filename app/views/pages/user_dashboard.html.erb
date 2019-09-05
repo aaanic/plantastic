@@ -7,17 +7,32 @@
 <%# end %>
 <%# end %>
 <div class="header-wrapper">
-  <div class="linear-green-header-container">
+  <div class="linear-green-header-container desktop-flex">
     <h1 class="break-on-desktop"><%= @environment.name %></h1>
-  </div>
-</div>
-<div class="desktop-flex">
-  <div></div>
 <div class="environment-box">
-      <h3 class="lmb">Gardeners</h3>
+  <h3 class="lmb">Gardeners</h3>
+
+  <!-- Current user's avatar  -->
+  <img class="avatar-large" src="<%= current_user.remote_image_url %>">
+  <!-- Others environment users' avatars -->
+  <% environment = current_user.environment_id %>
+  <% all_env_users = User.where("environment_id = #{environment}") %>
+  <% other_users_in_environment = all_env_users.reject { |u| u == current_user } %>
+  <% other_users_in_environment.each do |u| %>
+
+  <div class="flex-spa-between">
+    <h3 class="lmb smb">Care Takers</h3>
+    <div class="flex-spa-between">
+      <span style="margin-right: 10px; opacity: 0.6">Switch off reminders</span>
+  <input type="checkbox" id="toggle" class="checkbox" />
+    <label for="toggle" class="switch"></label>
+  </div>
+  </div>
       <% current_user.environment.users.each do |u| %>
+
         <img class="avatar-large" src="<%= u.remote_image_url %>">
       <% end %>
+
       <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 
       <%= link_to new_invitation_path do %>
@@ -60,7 +75,9 @@
       <% end %>
       <button class="btn btn-black mmt open-modal center-horizontal">Add a Reminder</button>
     </div>
+  </div>
 </div>
+
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
 
