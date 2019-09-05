@@ -118,7 +118,7 @@
   <h2>Plants in your Environment</h2>
 
   <!-- Before User has plants -->
-  <% if @environment_plants.nil?  %>
+  <% if @environment_plants.first.nil?  %>
   <div class="center-text">
     <h4 class="center-horizontal medium-margin" style="max-width: 500px">You have no plants in your environment yet. Find your darling in our plants collection. </h4>
     <%= link_to plants_path do %>

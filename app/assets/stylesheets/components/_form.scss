@@ -41,6 +41,11 @@ input {
   width: 100%;
 }
 
+@media only screen and (min-device-width: 1200px) {
+  .transparent-input {
+    width: 40%;
+  }
+}
 
 
 
