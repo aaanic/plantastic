@@ -93,8 +93,10 @@
     </div>
 
     <div class="mobile-tabbed">
-      <p>General<br><%= @plant.general %></p>
-      <p>Care<br><%= @plant.care %></p>
+      <p class="mobile-subtitle-bold">General</p>
+      <p><%= @plant.general %></p>
+      <p class="mobile-subtitle-bold">Care</p>
+      <p><%= @plant.care %></p>
     </div>
 
     </div>
@@ -102,7 +104,7 @@
 </div>
 
 <div>
-  
+
   <% if !@user_plants.first.nil? && !@user_plants.first.photo.file.nil? %>
 
   <h2><%= @plant.name %> in the Plantastic Community</h2>
