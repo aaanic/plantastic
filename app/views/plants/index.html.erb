@@ -17,12 +17,22 @@
   </div>
 
   <div class="filters"style="position: relative; background-color: rgba(255,255,255,0.6">
-    <button class="btn btn-outline-black">Care Level</button>
+    <div>
+    <button class="btn btn-outline-black plant--filter">Care Level</button>
+     <div class="filter-box hidden-filters">
+      <%= form_tag plants_path, method: :get do %>
+      <% @care_level.each do |care| %>
+  <div class="filter-option">
+  <%= check_box_tag('care_level[]', care.to_sym) %>
+  <%= label_tag care %>
+  </div>
+  <% end %>
+  </div>
+</div>
     <div>
      <button class="btn btn-outline-black plant--filter">Category</button>
      <div class="filter-box hidden-filters">
-      <%= form_tag plants_path, method: :get do %>
-      <% @categories.each do |cat| %>
+        <% @categories.each do |cat| %>
       <div class="filter-option">
         <%= check_box_tag('categories[]', cat.to_sym )%>
         <%= label_tag cat %>
@@ -52,11 +62,6 @@
       <% end %>
     </div>
   </div>
-
-  <% @care_level.each do |care| %>
-  <%= label_tag care %>
-  <%= check_box_tag('care_level[]', care.to_sym) %>
-  <% end %>
 
   <%= submit_tag "Filter", class: "btn btn-black" %>
   <% end %>
