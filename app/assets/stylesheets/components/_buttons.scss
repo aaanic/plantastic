@@ -1,3 +1,6 @@
+button {
+  cursor: pointer;
+}
 
 .btn {
   font-family: 'Merriweather', serif;
@@ -6,7 +9,6 @@
   border-radius: 40px;
   min-width: 180px;
   max-width: 250px;
-  max-height: 46px;
   border: none;
   text-transform: capitalize;
   display: inline-block;
