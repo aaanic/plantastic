@@ -1,13 +1,37 @@
 
 .reminder-card-container {
-  max-width: 400px;
+  max-width: 450px;
   // height: 667px;
   background-color: white;
   // margin: auto;
-  padding: 35px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid #dcdcdc;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.reminder-card-infos {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.card-left-green {
+  padding: 20px;
+  width: 30%;
+  background-color: $green;
+  h5 {
+  color: $white;
+  margin-bottom: 10px;
+  }
+}
+
+.card-middle {
+  padding: 10px;
+  width: 50%;
+}
+
+.card-right {
+  padding: 10px 0;
+}
 
 .card-reminder {
   // height: 156px;
@@ -15,6 +39,9 @@
   align-items: center;
 }
 
+.delete-icon {
+  margin-top: 100px;
+}
 
 .card-reminder h5 h4 {
   margin: 0;
@@ -32,17 +59,13 @@
 
 .reminder-infos {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   // display: flex;
   // flex-direction: column;
   // height: 100%;
   // justify-content: space-between;
   // height: 100%; /* braucht 100% höhe */
-}
-
-
-.reminder-infos-top {
-  display: flex;
-  justify-content: space-between;
 }
 
 // .reminder-infos img {
