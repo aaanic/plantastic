@@ -7,13 +7,17 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new
     authorize @invitation
-    user = User.invite!(invitation_params)
+    user = User.invite!(invitation_params, current_user)
     user.environment_id = current_user.environment_id
+
+    user.invited_by_id = current_user.id
+
     if user.save
       redirect_to dashboard_path
     else
       render :new
     end
+    
   end
 
   private
