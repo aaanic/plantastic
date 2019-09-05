@@ -1,9 +1,13 @@
 .environment-box {
+  margin-top: -220px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  position: relative;
   width: 500px;
   padding: 2em;
   background-color: #fff;
   border: 1px solid $light-gray;
-  position: absolute;
   bottom: 2em;
 }
 
@@ -11,4 +15,17 @@
 .environment-box {
   width: 280px;
 }
+}
+
+@media only screen and (min-device-width: 1200px) {
+ .environment-box {
+  margin-top: -450px;
+ }
+ .desktop-flex {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+ }
+ .break-on-desktop {
+  width: 35vw;
+ }
 }
