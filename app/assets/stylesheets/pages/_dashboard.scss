@@ -1,14 +1,12 @@
 .environment-box {
-  margin-top: -220px;
+  margin-bottom: -120px;
   margin-left: auto;
   margin-right: auto;
   z-index: 1;
-  position: relative;
   width: 500px;
   padding: 2em;
   background-color: #fff;
   border: 1px solid $light-gray;
-  bottom: 2em;
 }
 
 @media only screen and (max-device-width: 400px) {
@@ -19,7 +17,7 @@
 
 @media only screen and (min-device-width: 1200px) {
  .environment-box {
-  margin-top: -450px;
+  margin-bottom: -150px;
  }
  .desktop-flex {
   display: grid;
@@ -28,4 +26,10 @@
  .break-on-desktop {
   width: 35vw;
  }
+}
+
+.flex-spa-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
