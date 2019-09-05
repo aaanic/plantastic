@@ -6,6 +6,9 @@ input {
 
 
 .transparent-input {
+  font-family: 'Merriweather', serif;
+  color: $dark-gray;
+  font-size: 1em;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 40px;
   width: 70%;
@@ -14,6 +17,7 @@ input {
   border: none;
   color: $white;
   transition: transform 250ms ease-in-out;
+  margin-bottom: 20px;
   &:focus {
      border: 1px solid $white;
      background: none;
@@ -31,4 +35,32 @@ input {
   font-family: 'Merriweather', serif;
   color: $white;
 }
+
+.center-form {
+  text-align: center;
+  width: 100%;
+}
+
+@media only screen and (min-device-width: 1200px) {
+  .transparent-input {
+    width: 40%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

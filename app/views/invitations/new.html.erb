@@ -1,0 +1,29 @@
+<div class="green-banner">
+  <div class="banner-content invite-friend">
+    <div></div>
+    <h1>Invite a friend</h1>
+
+    <div>
+
+      <%= simple_form_for @invitation do |f| %>
+      <div class="form-inputs center-form">
+        <%= f.input :first_name,
+        placeholder: "First Name",
+        label: false,
+        input_html: { class: "transparent-input" } %>
+        <%= f.input :last_name,
+        placeholder: "Last Name",
+        label: false,
+        input_html: { class: "transparent-input" } %>
+        <%= f.input :email,
+        placeholder: "Email",
+        label: false,
+        input_html: { class: "transparent-input" } %>
+      </div>
+    </div>
+    <div class="form-actions center">
+      <%= f.button :submit, "Send Email", class: "btn btn-white"%>
+    </div>
+    <% end %>
+  </div>
+</div>

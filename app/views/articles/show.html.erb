@@ -1,0 +1,16 @@
+<div class="article-header" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= @article.remote_image_url %>);">
+  <h1><%= @article.title %></h1>
+</div>
+
+<div class="article-content">
+<p><%= markdown @article.text %></p>
+
+<% if current_user && current_user.admin %>
+  <p><%= link_to 'Edit', edit_article_path %> |
+  <%= link_to 'Remove', article_path, method: :delete %> |
+  <%= link_to 'Back', articles_path %></p>
+<% else %>
+<p><%= link_to 'Back', articles_path %></p>
+<% end  %>
+
+</div>

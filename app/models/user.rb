@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   belongs_to :environment
@@ -9,4 +9,5 @@ class User < ApplicationRecord
   # has_many :environments, through: :environment_users
 
   has_many :reminders
+  has_many :invitations
 end

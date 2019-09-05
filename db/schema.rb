@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_160715) do
+ActiveRecord::Schema.define(version: 2019_09_04_093646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "remote_image_url"
+  end
 
   create_table "environment_plants", force: :cascade do |t|
     t.string "nickname"
@@ -21,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_160715) do
     t.bigint "environment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["environment_id"], name: "index_environment_plants_on_environment_id"
     t.index ["plant_id"], name: "index_environment_plants_on_plant_id"
   end
@@ -40,6 +49,13 @@ ActiveRecord::Schema.define(version: 2019_08_27_160715) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "environment_id"
+  end
+
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "latin_name"
@@ -52,16 +68,20 @@ ActiveRecord::Schema.define(version: 2019_08_27_160715) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "specifics"
+    t.text "general"
+    t.text "care"
   end
 
   create_table "reminders", force: :cascade do |t|
     t.string "name"
-    t.datetime "date"
     t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "environment_id"
+    t.string "frequency"
+    t.string "weekday"
+    t.integer "hours"
     t.index ["environment_id"], name: "index_reminders_on_environment_id"
     t.index ["user_id"], name: "index_reminders_on_user_id"
   end
@@ -78,8 +98,22 @@ ActiveRecord::Schema.define(version: 2019_08_27_160715) do
     t.string "first_name"
     t.string "last_name"
     t.bigint "environment_id"
+    t.boolean "admin"
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer "invitation_limit"
+    t.string "invited_by_type"
+    t.bigint "invited_by_id"
+    t.integer "invitations_count", default: 0
+    t.string "remote_image_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["environment_id"], name: "index_users_on_environment_id"
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+    t.index ["invitations_count"], name: "index_users_on_invitations_count"
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

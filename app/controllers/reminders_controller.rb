@@ -1,4 +1,9 @@
 class RemindersController < ApplicationController
+
+
+  before_action :skip_authorization, only: :stop_reminders
+
+
   def index
     @reminders = policy_scope(Reminder)
   end
@@ -37,10 +42,16 @@ class RemindersController < ApplicationController
     end
   end
 
+  def stop_reminders
+    Sidekiq::ScheduledSet.new.clear
+    redirect_to dashboard_path
+  end
+
   def destroy
     find_reminder
     @reminder.destroy
     redirect_to dashboard_path
+
   end
 
   private
@@ -51,6 +62,6 @@ class RemindersController < ApplicationController
   end
 
   def reminder_params
-    @reminder = params.require(:reminder).permit(:date, :name, :description)
+    @reminder = params.require(:reminder).permit(:weekday, :hours, :name, :description, :frequency)
   end
 end

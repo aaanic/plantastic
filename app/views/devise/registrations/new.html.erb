@@ -1,25 +1,38 @@
-<h2>Sign up</h2>
+<div class="green-banner">
+  <div class="banner-content sign-up">
+    <div>
+    </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <h1>Sign up</h1>
+<div>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+      <div class="form-inputs center-form">
+        <%= f.input :email,
+        placeholder: "Email",
+        label: false,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "email", class: "transparent-input" }%>
+        <%= f.input :first_name, label: false, placeholder: "First name", required: true, input_html: { class: "transparent-input" } %>
+        <%= f.input :last_name, label: false, placeholder: "Last name", required: true, input_html: { class: "transparent-input" } %>
+        <%= f.hidden_field :environment_id, value: Environment.create(name: "My jungle").id %>
+        <%= f.input :password,
+        placeholder: "Password",
+        label: false,
+        required: true,
+
+        input_html: { autocomplete: "new-password", class: "transparent-input"} %>
+        <%= f.input :password_confirmation, label: false, placeholder: "Password Confirmation",
+        required: true,
+        input_html: { autocomplete: "new-password", class: "transparent-input" } %>
+      </div>
+
+</div>
+    <div class="form-actions center">
+      <%= f.button :submit, "Sign up", class: "btn btn-black" %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

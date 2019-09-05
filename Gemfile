@@ -15,6 +15,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
+
+gem 'devise_invitable', '~> 2.0.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -32,6 +35,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+#hamburger navigation icon
+gem 'hamburgers'
+# image upload
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -41,6 +50,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'pundit'
 gem 'pg_search'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'redcarpet', '~> 3.2.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -60,6 +72,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'whenever', require: false
+  gem 'rufus-scheduler'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -72,3 +87,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'postmark-rails'

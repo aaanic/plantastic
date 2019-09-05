@@ -1,26 +1,77 @@
-.banner {
+.home-banner {
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)), url(https://i.imgur.com/DsV6yt6.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   color: $white;
   background-size: cover;
   background-position: center;
-
 }
 
-.bg-img-plants {
-  background-image: url('https://source.unsplash.com/bBiuSdck8tU');
+.green-banner {
+  background: rgb(224,211,207);
+  background: linear-gradient(164.26deg, rgba(122, 145, 116, 0.49) 0%, #7A9174 93.18%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
   height: 100%;
-  z-index: 1;
-  filter: blur(4px);
+  height: 100vh;
+  p {
+    background-color: transparent;
+  }
 }
 
 .banner-content {
+  height:100%;
+  display: grid;
+  grid-template-rows: 20vh 20vh 1fr 4fr 1fr;
   position: fixed;
   left: 0;
-  top: 4rem;
   right: 0;
-  z-index: 9999;
-  h1, p {
+  h1, h2, p {
     margin: 0 auto;
     text-align: center;
+  }
+}
+
+.banner-content.sign-up {
+  grid-template-rows: 15vh 10vh 4fr 1fr 2fr;
+}
+
+.banner-content.login {
+  grid-template-rows: 20vh 20vh 9fr 2fr;
+}
+
+.banner-content.reset-password {
+  grid-template-rows: 20vh 20vh 9fr 1fr 3fr;
+}
+
+.banner-content.invite-friend {
+  grid-template-rows: 15vh 10vh 2fr 3fr;
+}
+
+
+
+
+.login-option {
+  position: fix;
+  top: 30px;
+  right: 30px;
+  justify-self: flex-end;
+  display: flex;
+  padding: 12px;
+  color: $white;
+}
+
+
+.home {
+    .btn-outline-black {
+    background-color: transparent;
+    border: solid 1px $white;
+    color: $white;
+    &:hover {
+      background-color: white;
+      color: rgba(0, 0, 0, 0.5);
+    }
   }
 }

@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Plantastic</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Plantastic</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= favicon_link_tag "favicon.png"%>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+  <%= render "shared/fullpage-navigation" %>
 
-  <body>
-    <%= yield %>
-  </body>
+<div class="navbar">
+  <div class="hamburger-nav">
+    <% if !current_user.nil? %>
+    <button class="hamburger hamburger--collapse" type="button">
+  <span class ="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+<% else %>
+  <div class="login-option">
+  <%= link_to new_user_session_path do %>
+<button class="btn-small btn-outline-black">Login</button>
+<% end %>
+</div>
+
+  <% end %>
+  </div>
+</div>
+
+
+  <%= yield %>
+
+  <% if !current_user.nil? %>
+  <%= render "shared/navbar-mobile" %>
+  <% end %>
+
+
+  <script>
+    let hamburger = document.querySelector('.hamburger');
+    function openNav() {
+      hamburger.classList.add('is-active');
+      document.getElementById("myNav").style.width = "100%";
+    }
+
+    document.querySelector('body').addEventListener('click', (event) => {
+      let isActive = !!document.querySelector('.is-active')
+      let { classList } = event.target
+
+      if (event && (classList.contains('hamburger-inner')) || (event.target.classList.contains('hamburger-box')) || (event.target.classList.contains('hamburger'))) {
+          if (isActive) {
+            closeNav()
+          } else {
+            openNav()
+          }
+      }
+    });
+
+    function closeNav() {
+      hamburger.classList.remove('is-active');
+      document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+
+</body>
 </html>

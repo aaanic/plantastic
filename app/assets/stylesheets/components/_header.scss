@@ -2,6 +2,40 @@
   height: 70vh;
 }
 
+.header-wrapper {
+padding-bottom: 8vh;
+position: relative;
+}
+
+.empty-header-container {
+  height: 6vh;
+  padding: 8vh 5vw;
+}
+
+.linear-green-header-container {
+  min-height: 33vh;
+  padding: 10vh 5vw;
+  background: linear-gradient(164.26deg, rgba(122, 145, 116, 0.23) 0%, rgba(122, 145, 116, 0.8) 93.18%);
+}
+
+@media only screen and (max-device-width: 400px) {
+  .linear-green-header-container {
+    padding: 4vh 5vw 10vh 5vw;
+  }
+}
+
+.article-header {
+  height: 50vh;
+  color: $white;
+  text-align: center;
+  display: flex;
+  h1 {
+    width: 400px;
+    margin: auto;
+    align-self: center;
+  }
+}
+
 @media only screen and (max-device-width: 1200px) {
   .header-img {
     position: center;
@@ -33,6 +67,10 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+
+  .linear-green-header-container {
+    display: flex;
   }
 
 }

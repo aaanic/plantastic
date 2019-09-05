@@ -1,0 +1,176 @@
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  margin: 0 auto;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+}
+
+@media(max-width: 600px) {
+  .modal {
+    padding-top: 0;
+  }
+  .reminder-container {
+    height: 100%;
+    padding: 30px;
+  }
+}
+
+.modal.modal-active {
+  display: block;
+}
+
+
+/* Reminder Form */
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+}
+
+select#reminder_weekday, select#reminder_hours, select#reminder_frequency {
+  font-family: 'Merriweather', serif;
+  text-transform: lowercase;
+  font-size: calc(0.8rem + 0.3vw);
+  color: #302E2E;
+  &:focus {
+    outline: 0;
+  }
+}
+
+
+textarea#reminder_description {
+  font-family: 'Merriweather', serif;
+  text-transform: lowercase;
+  font-size: calc(0.8rem + 0.3vw);
+  color: #302E2E;
+}
+
+.select-wrapper {
+  /* ... */
+  position: relative;
+}
+.select-wrapper::before {
+  content: ">";
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  transform: rotate(90deg);
+  color: black;
+  pointer-events: none;
+}
+
+.reminder-container {
+  max-width: 500px;
+  // height: 667px;
+  background-color: white;
+  margin: auto;
+  padding: 45px;
+  border-radius: 5px;
+}
+
+.reminder-container input[type="submit"] {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.reminder-container input, label, select, textarea {
+  display: block;
+/*  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;*/
+}
+
+.reminder-container label {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.reminder-container label[for="title"] {
+  padding-top: 0;
+}
+
+
+.reminder-header-green {
+  position: relative;
+  // height: 50px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  // background-color: #7A9174;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // // color: #FFFFFF;
+}
+
+
+.reminder-input-field-outline {
+  /* max-width: 80%; */
+  width: 100%;
+  padding: 20px;
+  margin: 8px 0;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+
+.reminder-input-field-outline input {
+    border: 0;
+}
+
+
+
+
+.reminder-input-field-outline:focus {
+  outline: 0;
+  box-shadow: 0px 0px 8px #0066ff;
+}
+
+.reminder-container textarea {
+  height: 120px;
+}
+
+.datetime {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field {
+  width: calc((100% - 20px) / 2);
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+

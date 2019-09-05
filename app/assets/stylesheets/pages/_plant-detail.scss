@@ -2,14 +2,8 @@
   padding: 2em;
 }
 
-.description-text {
-  padding: 0 1.5em;
-}
-
-
 .subtitle {
   opacity: 0.6;
-  margin-bottom: 1em;
 }
 
 .category-tag {
@@ -33,34 +27,93 @@
 }
 
 
+.empty-nickname-input {
+  width: 100%;
+  margin-top: 1em;
+  font-size: calc(1.5rem + 0.3vw);
+  font-style: italic;
+  border: none;
+  background-color: transparent;
+  opacity: 0.6;
+   &:focus {
+    outline: 0;
+    border-bottom: 0.5px solid $dark-gray;
+   }
+}
+
+.plant-nickname-input {
+  width: 100%;
+  margin-top: 1em;
+  font-size: calc(1.5rem + 0.3vw);
+  border: none;
+  color: $orange;
+  background-color: transparent;
+  &:focus{
+    outline: 0;
+  border-bottom: 0.5px solid $orange;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .detail-content {
+    margin-top: 20px;
+  }
+
+  .titles {
+    margin-bottom: 20px;
+  }
+
+  .mobile-subtitle-bold {
+  font-weight: bold;
+  }
+}
+
+
+
 @media only screen and (min-device-width: 1200px) {
   .detail-content-container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: grid;
     grid-gap: 3em;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.25fr;
   }
 
   .titles {
-    align-self: center;
+    align-self: start;
+  }
+
+  .category-tag {
+    display: none;
   }
 
   .detail-content {
+    height: 100%;
     display: grid;
-    grid-template-rows: 25vh auto 2fr 1fr;
+    grid-template-rows: 25vh auto 1fr 2fr 2fr;
     align-self: center;
     justify-self: start;
-    max-width: 30vw;
+    max-width: 45vw;
     height: 80vh;
     p {
       align-self:center;
       margin: 0 auto;
     }
   }
+
+  .description-text {
+    width: 90%;
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }
+
+
+
   .overlap-right {
     display: none;
   }
@@ -70,5 +123,14 @@
     justify-self: center;
     position: relative;
     bottom: 50%;
+  }
+
+  .invisible {
+    height: 65vh;
+  }
+
+  .related-text {
+    display: flex;
+    justify-content: space-between;
   }
 }

@@ -1,0 +1,74 @@
+
+.reminder-card-container {
+  max-width: 400px;
+  // height: 667px;
+  background-color: white;
+  // margin: auto;
+  padding: 35px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+.card-reminder {
+  // height: 156px;
+  display: flex;
+  align-items: center;
+}
+
+
+.card-reminder h5 h4 {
+  margin: 0;
+}
+
+.card-reminder h4 {
+  padding-top: 8px;
+}
+
+.card-reminder p {
+  margin-bottom: 0;
+  margin-top: 8px;
+
+}
+
+.reminder-infos {
+  width: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // height: 100%;
+  // justify-content: space-between;
+  // height: 100%; /* braucht 100% höhe */
+}
+
+
+.reminder-infos-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .reminder-infos img {
+//   position: absolute;
+//   width: 25px;
+//   height: 25px;
+//   top: 20px;
+//   right: 20px; /* bleibt so immer rechts für responsive */
+// }
+
+.card-reminder-date-edit p {
+  margin: 0;
+}
+
+
+/* Button Reminder Card */
+
+.button-reminder-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media only screen and (max-device-width: 800px) {
+  .reminder-card-containers {
+    max-width: 18rem;
+  }
+}
+

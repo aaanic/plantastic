@@ -23,6 +23,7 @@ class EnvironmentPlantsController < ApplicationController
     environment_plant.plant = plant
     authorize environment_plant
     environment_plant.save
+
     redirect_to environment_plant_path(environment_plant.id)
   end
 
@@ -51,6 +52,6 @@ class EnvironmentPlantsController < ApplicationController
   end
 
   def environment_plant_params
-    params.require(:environment_plant).permit(:nickname, :environment_id, :plant_id)
+    params.require(:environment_plant).permit(:nickname, :environment_id, :plant_id ,:photo)
   end
 end

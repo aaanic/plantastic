@@ -1,27 +1,24 @@
-<div class="banner">
-  <div class="bg-img-plants"></div>
+<body class="home">
+
+
+<div class="home-banner">
   <div class="banner-content">
+<div></div>
 
-<%= link_to "Log in", new_user_session_path %>
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Log out", destroy_user_session_path, method: :delete  %>
+<h1 class="entry-title">Welcome to<br>Plantastic</h1>
 
-<h1>Search for a plant</h1>
-
-<%= form_tag plants_path, method: :get, class: "" do %>
+<%= form_tag plants_path, method: :get, class: "home-search-form" do %>
     <%= text_field_tag :query,
         params[:query],
-        class: "",
-        placeholder: "Search Plants"
+        class: "home-search-input",
+        placeholder: "Find a plant"
       %>
-  <div class="">
-    <%= submit_tag "Search", class: "" %>
-  </div>
 <% end %>
 
-<%= link_to plants_path do %>
-<button class="btn btn-black">Browse</button>
+<%= link_to plants_path, class: 'align-end center' do %>
+<button class="btn btn-black">Browse All Plants</button>
 <% end %>
 
 </div>
 </div>
+</body>

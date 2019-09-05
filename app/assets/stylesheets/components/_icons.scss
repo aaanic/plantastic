@@ -7,6 +7,29 @@
 }
 
 
+.svg-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.help-icon {
+  margin-right: 12px;
+  padding: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4)
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: $dark-gray;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
 .icons {
   width: 60px;
 }
