@@ -10,6 +10,16 @@
   <div class="linear-green-header-container desktop-flex">
     <h1 class="break-on-desktop"><%= @environment.name %></h1>
 <div class="environment-box">
+  <h3 class="lmb">Gardeners</h3>
+
+  <!-- Current user's avatar  -->
+  <img class="avatar-large" src="<%= current_user.remote_image_url %>">
+  <!-- Others environment users' avatars -->
+  <% environment = current_user.environment_id %>
+  <% all_env_users = User.where("environment_id = #{environment}") %>
+  <% other_users_in_environment = all_env_users.reject { |u| u == current_user } %>
+  <% other_users_in_environment.each do |u| %>
+
   <div class="flex-spa-between">
     <h3 class="lmb smb">Care Takers</h3>
     <div class="flex-spa-between">
@@ -19,8 +29,10 @@
   </div>
   </div>
       <% current_user.environment.users.each do |u| %>
+
         <img class="avatar-large" src="<%= u.remote_image_url %>">
       <% end %>
+
       <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
 
       <%= link_to new_invitation_path do %>
