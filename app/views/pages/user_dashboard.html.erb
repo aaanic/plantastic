@@ -7,14 +7,17 @@
 <%# end %>
 <%# end %>
 <div class="header-wrapper">
-  <div class="linear-green-header-container">
+  <div class="linear-green-header-container desktop-flex">
     <h1 class="break-on-desktop"><%= @environment.name %></h1>
-  </div>
-</div>
-<div class="desktop-flex">
-  <div></div>
 <div class="environment-box">
-      <h3 class="lmb">Gardeners</h3>
+  <div class="flex-spa-between">
+    <h3 class="lmb smb">Care Takers</h3>
+    <div class="flex-spa-between">
+      <span style="margin-right: 10px; opacity: 0.6">Switch off reminders</span>
+  <input type="checkbox" id="toggle" class="checkbox" />
+    <label for="toggle" class="switch"></label>
+  </div>
+  </div>
       <% current_user.environment.users.each do |u| %>
         <img class="avatar-large" src="<%= u.remote_image_url %>">
       <% end %>
@@ -60,7 +63,9 @@
       <% end %>
       <button class="btn btn-black mmt open-modal center-horizontal">Add a Reminder</button>
     </div>
+  </div>
 </div>
+
 <!-- Start Modal create reminder -->
 <div id="myModal" class="modal">
 
