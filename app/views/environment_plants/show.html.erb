@@ -61,12 +61,39 @@
             c0-4.571,3.706-8.276,8.276-8.276c4.57,0,8.275,3.706,8.275,8.276C18.275,12.543,17.126,14.816,15.32,16.335z"></path>
           </svg>
           <p><%= @environment_plant.plant.care_level %></p>
-
         </div>
+        <div>
+        <svg class="svg-icon" viewBox="0 0 20 20">
+          <path d="M11.709,7.438H8.292c-0.234,0-0.427,0.192-0.427,0.427v8.542c0,0.234,0.192,0.427,0.427,0.427h3.417c0.233,0,0.426-0.192,0.426-0.427V7.865C12.135,7.63,11.942,7.438,11.709,7.438 M11.282,15.979H8.719V8.292h2.563V15.979zM6.156,11.709H2.74c-0.235,0-0.427,0.191-0.427,0.426v4.271c0,0.234,0.192,0.427,0.427,0.427h3.417c0.235,0,0.427-0.192,0.427-0.427v-4.271C6.583,11.9,6.391,11.709,6.156,11.709 M5.729,15.979H3.167v-3.416h2.562V15.979zM17.261,3.167h-3.417c-0.235,0-0.427,0.192-0.427,0.427v12.812c0,0.234,0.191,0.427,0.427,0.427h3.417c0.234,0,0.427-0.192,0.427-0.427V3.594C17.688,3.359,17.495,3.167,17.261,3.167 M16.833,15.979h-2.562V4.021h2.562V15.979z"></path>
+        </svg>
+        <p><%= @environment_plant.plant.max_height %></p>
       </div>
-      <p class="description-text"><%= @environment_plant.plant.description %></p>
-      <p class="description-text"><%= @environment_plant.plant.general %></p>
-      <p class="description-text"><%= @environment_plant.plant.care %></p>
+      </div>
+
+      <h4 class="description-text"><%= @environment_plant.plant.description %></h4>
+
+    <div class="tabbed">
+      <input checked="checked" id="tab1" type="radio" name="tabs" />
+      <input id="tab2" type="radio" name="tabs" />
+
+      <nav>
+        <label for="tab1">General</label>
+        <label for="tab2">Care</label>
+      </nav>
+
+      <figure>
+        <div class="tab1"><p><%= @environment_plant.plant.general %></p></div>
+        <div class="tab2"><p><%= @environment_plant.plant.care %></p>
+        </div>
+      </figure>
+    </div>
+
+    <div class="mobile-tabbed">
+      <p class="mobile-subtitle-bold">General</p>
+      <p><%= @environment_plant.plant.general %></p>
+      <p class="mobile-subtitle-bold">Care</p>
+      <p><%= @environment_plant.plant.care %></p>
+    </div>
     </div>
   </div>
 
