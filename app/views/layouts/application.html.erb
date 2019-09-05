@@ -13,16 +13,24 @@
 
 <body>
   <%= render "shared/fullpage-navigation" %>
-  <% if !current_user.nil? %>
+
   <div class="navbar">
   <div class="hamburger-nav">
+    <% if !current_user.nil? %>
     <button class="hamburger hamburger--collapse" type="button">
   <span class ="hamburger-box">
     <span class="hamburger-inner"></span>
   </span>
 </button>
+<% else %>
+  <div class="login-option">
+  <%= link_to new_user_session_path do %>
+<button class="btn-small btn-outline-black">Login</button>
+<% end %>
+</div>
   </div>
   </div>
+
   <% end %>
 
   <%= yield %>
