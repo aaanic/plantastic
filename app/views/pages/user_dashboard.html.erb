@@ -9,34 +9,31 @@
 <div class="header-wrapper">
   <div class="linear-green-header-container desktop-flex">
     <h1 class="break-on-desktop"><%= @environment.name %></h1>
-<div class="environment-box">
-  <h3 class="lmb">Gardeners</h3>
 
-  <!-- Current user's avatar  -->
-  <img class="avatar-large" src="<%= current_user.remote_image_url %>">
-  <!-- Others environment users' avatars -->
-  <% environment = current_user.environment_id %>
-  <% all_env_users = User.where("environment_id = #{environment}") %>
-  <% other_users_in_environment = all_env_users.reject { |u| u == current_user } %>
-  <% other_users_in_environment.each do |u| %>
+    <div class="environment-box">
 
-  <div class="flex-spa-between">
-    <h3 class="lmb smb">Care Takers</h3>
     <div class="flex-spa-between">
-      <span style="margin-right: 10px; opacity: 0.6">Switch off reminders</span>
-  <input type="checkbox" id="toggle" class="checkbox" />
-    <label for="toggle" class="switch"></label>
-  </div>
-  </div>
-      <% current_user.environment.users.each do |u| %>
-        <img class="avatar-large" src="<%= u.remote_image_url %>">
-      <% end %>
+      <h3 class="lmb smb">Care Takers</h3>
+      <div class="flex-spa-between">
+        <span style="margin-right: 10px; opacity: 0.6">Switch off reminders</span>
+        <input type="checkbox" id="toggle" class="checkbox" />
+        <label for="toggle" class="switch"></label>
+      </div>
+    </div>
+    <!-- Current user's avatar  -->
+    <img class="avatar-large" src="<%= current_user.remote_image_url %>">
+    <!-- Others environment users' avatars -->
+    <% environment = current_user.environment_id %>
+    <% all_env_users = User.where("environment_id = #{environment}") %>
+    <% other_users_in_environment = all_env_users.reject { |u| u == current_user } %>
+    <% other_users_in_environment.each do |u| %>
+      <img class="avatar-large" src="<%= u.remote_image_url %>">
+    <% end %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
+    <%= link_to new_invitation_path do %>
+      <button class="btn-small btn-outline-black">Invite a friend</button>
+    <% end %>
 
-      <%= link_to "Log out", destroy_user_session_path, method: :delete  %>
-
-      <%= link_to new_invitation_path do %>
-        <button class="btn-small btn-outline-black">Invite a friend</button>
-      <% end %>
       <!-- Reminders -->
       <% if !@environment.reminders.nil? %>
         <h3 class="mmt smb">Reminders</h3>
@@ -54,11 +51,11 @@
                     <% end %>
 
                     <% if policy(Reminder).destroy? %>
-                    <%= link_to reminder_path(r), method: :delete do %>
-                    <svg class="svg-icon" viewBox="0 0 20 20">
-                      <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
-                    </svg>
-                    <% end %>
+                      <%= link_to reminder_path(r), method: :delete do %>
+                        <svg class="svg-icon" viewBox="0 0 20 20">
+                          <path d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306"></path>
+                        </svg>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>
