@@ -2,4 +2,6 @@ meta_product_name: "Plantastic"
 meta_title: "Plantastic - Making plant care simplistic"
 meta_description: "Making plant care simplistic"
 meta_image: "favicon.png" # should exist in `app/assets/images/`
-meta_url: "https://www.plantasticapp.live"
+meta_url: "https://www.plantastic.live"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
