@@ -72,8 +72,8 @@
 
   <h2>Your plant</h2>
   <% if @environment_plant.photo.file %>
-   <%= cl_image_tag @environment_plant.photo, height: 300, width: 400, crop: :fill %>
- <% end %>
+  <%= cl_image_tag @environment_plant.photo, height: 300, width: 400, crop: :fill %>
+  <% end %>
 
   <%= simple_form_for(@environment_plant) do |f| %>
   <!-- [...] -->
@@ -81,39 +81,42 @@
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Upload Image" %>
   <!-- [...] -->
-<% end %>
-
-<% if @environment_plant.plant_friends != [] %>
-    <div class= 'related-content'>
-      <div class="related-text">
-        <h2>Your other plants</h2>
-        <%= link_to dashboard_path do %>
-        <h4 class ='back-link'>Go to dashboard</h4>
-        <% end %>
-      </div>
-      <div class="card-container">
-        <% @environment_plant.plant_friends.sample(3).each do |eplant| %>
-        <%= link_to environment_plant_path(eplant) do %>
-        <div class="card">
-      <img class="card-img-top" src="<%= eplant.plant.remote_image_url %>">
-      <div class="card-body">
-      <div class="card-body-top">
-        <h5 class="card-category"><%= eplant.plant.category %></h5>
-        <p class="plant-details"><%= eplant.plant.care_level %> ○ <%= eplant.plant.light_preference   %></p>
-      </div>
-        <h3 class="card-title"><%= eplant.plant.name %></h3>
-        <% if eplant.nickname.nil? %>
-        <h4 class="card-subtitle"><%= eplant.plant.latin_name %></h4>
-        <% else %>
-        <h4 style="color: #ffac81"> <%= eplant.nickname %></h4>
-        <% end %>
-      </div>
-      </div>
-        <% end %>
-        <% end %>
-      </div>
-
-    </div>
-
   <% end %>
+
+
+  <div class= 'related-content'>
+    <div class="related-text">
+      <% if @environment_plant.plant_friends != [] %>
+      <h2>Your other plants</h2>
+      <%= link_to dashboard_path do %>
+      <h4 class ='back-link'>Go to dashboard</h4>
+      <% end %>
+    </div>
+    <div class="card-container">
+      <% @environment_plant.plant_friends.sample(3).each do |eplant| %>
+      <%= link_to environment_plant_path(eplant) do %>
+      <div class="card">
+        <img class="card-img-top" src="<%= eplant.plant.remote_image_url %>">
+        <div class="card-body">
+          <div class="card-body-top">
+            <h5 class="card-category"><%= eplant.plant.category %></h5>
+            <p class="plant-details"><%= eplant.plant.care_level %> ○ <%= eplant.plant.light_preference   %></p>
+          </div>
+          <h3 class="card-title"><%= eplant.plant.name %></h3>
+          <% if eplant.nickname.nil? %>
+          <h4 class="card-subtitle"><%= eplant.plant.latin_name %></h4>
+          <% else %>
+          <h4 style="color: #ffac81"> <%= eplant.nickname %></h4>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <% else %>
+    <%= link_to dashboard_path do %>
+    <button class="btn btn-outline-black center-horizontal">Go to Dashboard</button>
+    <% end %>
+    <% end %>
   </div>
+</div>
