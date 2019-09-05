@@ -49,6 +49,9 @@
 
 
 .login-option {
+  position: fix;
+  top: 30px;
+  right: 30px;
   justify-self: flex-end;
   display: flex;
   padding: 12px;
@@ -56,3 +59,14 @@
 }
 
 
+.home {
+    .btn-outline-black {
+    background-color: transparent;
+    border: solid 1px $white;
+    color: $white;
+    &:hover {
+      background-color: white;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
