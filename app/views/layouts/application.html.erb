@@ -14,7 +14,7 @@
 <body>
   <%= render "shared/fullpage-navigation" %>
 
-  <div class="navbar">
+<div class="navbar">
   <div class="hamburger-nav">
     <% if !current_user.nil? %>
     <button class="hamburger hamburger--collapse" type="button">
@@ -28,12 +28,14 @@
 <button class="btn-small btn-outline-black">Login</button>
 <% end %>
 </div>
-  </div>
-  </div>
 
   <% end %>
+  </div>
+</div>
+
 
   <%= yield %>
+
   <% if !current_user.nil? %>
   <%= render "shared/navbar-mobile" %>
   <% end %>
