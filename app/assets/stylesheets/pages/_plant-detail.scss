@@ -51,8 +51,26 @@
   &:focus{
     outline: 0;
   border-bottom: 0.5px solid $orange;
+  }
 }
+
+
+@media only screen and (max-width: 600px) {
+
+  .detail-content {
+    margin-top: 20px;
+  }
+
+  .titles {
+    margin-bottom: 20px;
+  }
+
+  .mobile-subtitle-bold {
+  font-weight: bold;
+  }
 }
+
+
 
 @media only screen and (min-device-width: 1200px) {
   .detail-content-container {
@@ -88,29 +106,12 @@
     }
   }
 
-
-@media only screen and (min-width: 600px) {
-  .detail-content h4 {
-    padding-top: 20px;
-  }
-}
-
-
   .description-text {
     width: 90%;
+      margin-bottom: 20px;
+      margin-top: 20px;
   }
 
-
-@media only screen and (min-width: 600px) {
-  .description-text h4 {
-    padding-top: 20px;
-  }
-
-  label {
-    padding-top: 20px;
-  }
-
-}
 
 
   .overlap-right {
@@ -133,5 +134,3 @@
     justify-content: space-between;
   }
 }
-
-
