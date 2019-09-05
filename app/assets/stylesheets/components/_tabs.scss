@@ -31,7 +31,7 @@ nav label {
 }
 
 
-nav label:hover { background: hsl(210,50%,40%); }
+nav label:hover { color: $dark-gray; border-bottom: 1px solid $dark-gray;}
 nav label:active { background: #ffffff; }
 
 #tab1:checked ~ nav label[for="tab1"],
@@ -53,4 +53,24 @@ nav label:active { background: #ffffff; }
   left: 0;
   bottom: -1px;
   border-bottom: 1px solid $dark-gray;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .tabbed {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mobile-tabbed {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mobile-tabbed label {
+    padding-top: 20px;
+  }
 }
