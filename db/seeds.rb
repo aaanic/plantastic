@@ -5,12 +5,15 @@ puts "Rendering the Johansson's flat"
 stockholm_flat = Environment.create!(name: "The Johansson's Flat")
 
 puts "Welcome to your studio, Emma"
-User.create!(username: "emmastudio", first_name: "Emma", last_name: "Green", email:"emmastudio@green.com", password: "iamgreen", environment: emma_studio, admin: true, remote_image_url: "https://imgur.com/XBOedSP.jpg")
+User.create!(username: "emmastudio", first_name: "Emma", last_name: "Green", email:"emmastudio@green.com", password: "iamgreen", environment: emma_studio, remote_image_url: "https://imgur.com/XBOedSP.jpg")
 puts "Welcome to  the Johansson's flat, Emma and Sven"
-User.create!(username: "emmaflat", first_name: "Emma", last_name: "Green", email: "emma@green.com", password: "iamgreen", environment: stockholm_flat, admin: true, remote_image_url: "https://imgur.com/XBOedSP.jpg")
+User.create!(username: "emmaflat", first_name: "Emma", last_name: "Green", email: "emma@green.com", password: "iamgreen", environment: stockholm_flat, remote_image_url: "https://imgur.com/XBOedSP.jpg")
 puts "Emma moves in"
 User.create!(username: "svenster", first_name: "Sven", last_name: "Johansson", email: "sven@johansson.com", password: "iamsven", environment: stockholm_flat, remote_image_url: "https://imgur.com/10JnjOG.jpg")
 puts "Sven moves in too!"
+User.create!(username: "emmastudio", first_name: "Emma", last_name: "Green", email:"emmastudio@green.com", password: "iamgreen", environment: emma_studio, remote_image_url: "https://imgur.com/XBOedSP.jpg")
+puts "Admin account created"
+User.create!(username: "admin", first_name: "Emma", last_name: "Green", email:"admin@plantastic.com", password: "adminrules", environment: stockholm_flat, remote_image_url: "https://imgur.com/XBOedSP.jpg")
 
 puts "Rendering their neighbor's studio"
 neighbor = Environment.create!(name: "Bjorn's Studio")
