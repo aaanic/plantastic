@@ -106,13 +106,26 @@
 <div>
 
   <% if !@user_plants.first.nil? && !@user_plants.first.photo.file.nil? %>
+  <div class= 'related-content no-green'>
+    <div class="related-text">
 
   <h2><%= @plant.name %> in the Plantastic Community</h2>
-  <!-- <div class="gallery"> -->
-    <% @user_plants.each do |user_plant| %>
-    <%= cl_image_tag user_plant.photo, height: 300,   width: 400, crop: :fill  %>
+      </div>
+  <div class="gallery">
+    <% if @user_plants[3] && @user_plants[3].photo %>
+    <%= cl_image_tag @user_plants[3].photo, height: 300,   width: 400, crop: :fill, class: "gallery__img gallery__item--1" %>
+      <% end %>
+      <% if @user_plants[2] && @user_plants[2].photo %>
+    <%= cl_image_tag @user_plants[2].photo, height: 300,   width: 400, crop: :fill, class: "gallery__img gallery__item--2"  %>
     <% end %>
-    <!-- </div> -->
+    <% if @user_plants[0] && @user_plants[0].photo %>
+    <%= cl_image_tag @user_plants[0].photo, height: 700,   width: 600, crop: :fill, class: "gallery__img gallery__item--3"  %>
+    <% end %>
+    <% if @user_plants[1] && @user_plants[1].photo %>
+    <%= cl_image_tag @user_plants[1].photo, height: 400,   width: 650, crop: :fill, class: "gallery__img gallery__item--4"  %>
+    <% end %>
+  </div>
+    </div>
     <% end %>
   </div>
 

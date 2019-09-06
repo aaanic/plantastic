@@ -1,5 +1,5 @@
 .filters {
-  margin: 2em 0 2em 0;
+  margin: 2em 0em 2em 0;
   padding: 0 5vw;
   display: flex;
   flex-wrap: wrap;
@@ -27,4 +27,8 @@
 
 .hidden-filters {
   display: none;
+}
+
+.plant--filter {
+  margin-bottom: 1em;
 }

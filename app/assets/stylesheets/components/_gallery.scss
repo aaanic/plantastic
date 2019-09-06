@@ -1,7 +1,7 @@
 .gallery {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(5, 5vw);
+    grid-template-rows: repeat(5, 8vw);
     grid-gap: 15px;
 }
 

@@ -1,6 +1,8 @@
-<h1>All articles</h1>
+<div class="empty-header-container">
+  <h1>All articles</h1>
+</div>
 
-<div class="content-container">
+<div class="content-container articles">
   <div class="card-container">
 
 <% @articles.each do |a| %>
@@ -8,13 +10,21 @@
     <%= link_to article_path(a) do %>
       <img class="card-img-top" src="<%= a.remote_image_url %>">
       <div class="card-body">
-        <h5 class="card-category"><%= a.title %></h5>
+        <h5 class="card-category">Article</h5>
+        <div class="card-titles">
+          <h3 class="card-title"><%= a.title %></h3>
+        </div>
       </div>
     <% end %>
   </div>
 <% end %>
 
   </div>
+  <div class="center-text">
+    <%= link_to plants_path do %>
+  <button class="btn btn-outline-black mmt">Browse Plants</button>
+  <% end %>
+</div>
 </div>
 <% if current_user && current_user.admin %>
   <p><%= link_to 'Add a new article', new_article_path %></p>
