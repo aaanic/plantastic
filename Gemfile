@@ -52,7 +52,7 @@ gem 'pundit'
 gem 'pg_search'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-gem 'redcarpet', '~> 3.2.2'
+gem 'redcarpet', '~> 3.5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
